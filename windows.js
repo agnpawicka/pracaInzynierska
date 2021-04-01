@@ -9,8 +9,9 @@ function changeLocation(newLocation) {
 
 function getFile() {
   alert("odwołało się do getFile")
-  // TODO:  W tym miejscu powinno wziąć jsona, zrobić walidację
-  // walidacja powinna chyba tworzyć obrazki z mathjax'a
-  // TODO: komunikacja z gs...
+  validator=require('jsonValidator.js');
+  validator.validate(file); // TODO: w tym miejscu chcemy wiedziec co ma byc argumentem
+  //tu chyba tworzymy obrazki z mathjaxa
+  // TODO: komunikacja z gs
 
 }
