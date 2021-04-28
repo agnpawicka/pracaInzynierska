@@ -13,8 +13,8 @@
 
 function checkBox(form, question){ // wielokrotny wybór
   var item = form.addCheckboxItem();
-  item.setTitle(question.title);
-    var choices = question.table;
+  item.setTitle(question.text);
+    var choices = question.answers;
   for(let i=0; i<choices.length; i++) choices[i]=item.createChoice(choices[i]);
   item.setChoices(choices);
 }
@@ -25,15 +25,15 @@ function checkBox(form, question){ // wielokrotny wybór
  */
 function gridBox(form, question){
    var item = form.addCheckboxItem();
-   item.setTitle(question.title);
-    var choices = question.table;
+   item.setTitle(question.text);
+    var choices = question.answers;
   for(let i=0; i<choices.length; i++) choices[i]=item.createChoice(choices[i]);
   item.setChoices(choices);
 }
 
 function choice(form, question){
     var item = form.addMultipleChoiceItem();
-    item.setTitle(question.title)
+    item.setTitle(question.text)
     .setChoices([
         item.createChoice('Cats', FormApp.PageNavigationType.CONTINUE),
         item.createChoice('Dogs', FormApp.PageNavigationType.RESTART)
@@ -82,7 +82,7 @@ function list(form, question){
   var item = form.addListItem();
   var choices = question.answers;
   for(let i=0; i<choices.length; i++) choices[i]=item.createChoice(choices[i]);
-  item.setTitle(question.title)
+  item.setTitle(question.text)
     .setChoices(choices);
 
 }
@@ -115,10 +115,12 @@ function video(form, question){
 
 }
 
-function createFromJSON() {// Create a new form from json
-var form = FormApp.create('New Form'); //TODO add title
-const json = '{"questions": [{"type": "checkBox", "text": "opcjeListy", "answers": ["jedna", "druga", "trzecia"] }]}'; // TODO json file as argument
-var questions = (JSON.parse(json)).questions;
+function createFromJSON(json) {// Create a new form from json
+
+//const json = JSON.parse('{"title": "Nowy Formularz Testowy", "questions": [{"type": "checkBox", "text": "opcjeListy", "tex": "null", "answers": ["jedna", "druga", "trzecia"], "points": "linear" }]}');
+// TODO json file as argument
+var form = FormApp.create(json.title); //TODO add title
+var questions = json.questions;
 //Logger.log(questions);
 //Logger.log(questions.);
 for( let it =0; it<questions.length; it++){
@@ -141,5 +143,6 @@ for( let it =0; it<questions.length; it++){
 //TODO: json to questions.
 Logger.log('Published URL: ' + form.getPublishedUrl());
 Logger.log('Editor URL: ' + form.getEditUrl());
+return form.getPublishedUrl();
 
 }

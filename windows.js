@@ -13,7 +13,7 @@ function changeLocation(newLocation) {
 function getFile() {
 
   const files = document.querySelector('input').files;
-  alert("Wgrano " + files[0].name);
+  console.log("Wgrano " + files[0].name);
   const file = files[0];
 
 
@@ -22,11 +22,17 @@ function getFile() {
   reader.readAsText(file);
 
   reader.onload = function() {
-     const valid = validator(JSON.parse(reader.result));
-     alert("valid "+valid);
+     const readFile = reader.result;
+     const valid = validator(JSON.parse(readFile));
+     console.log("valid "+valid);
      // TODO: tu chyba tworzymy obrazki z mathjaxa
      // TODO: komunikacja z gs
-
+     if(valid == true){
+     const communication = require('./communication.js');
+     var encodedForm =require('query-string').stringify({"encoded": readFile});
+     console.log(encodedForm);
+     communication(encodedForm, changeLocation);
+   }
 
   };
 
