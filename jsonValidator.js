@@ -9,7 +9,7 @@ module.exports = function (json){
     "properties": {
       "type": {"type": "string", "enum": ["checkBox"]}, //// TODO:  rodzaje pytań
       "text": {"type": "string"},
-      "tex": {"type": "string"},
+      "tex": {"type": "boolean"},
       "answers": {"type": "array", "items": {"type": "string"}},
       "points": {"type": "string", "enum": ["linear", "exponential"]} //// TODO: rodzaje punktacji
     }
@@ -21,7 +21,7 @@ module.exports = function (json){
     "title": {"type": "string"},
     "questions": {"type": "array", "items": {"$ref": "question"}
   }}}
-  
+
   validator.addSchema(question, '/question');
   return validator.validate(json, schema).valid;
 }

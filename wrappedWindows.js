@@ -2335,14 +2335,12 @@ module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => `%${x.c
 },{}],11:[function(require,module,exports){
 module.exports = function (encodedForm, callback)
 {
-    //console.log(typeof encodedForm);
     const Url ="https://script.google.com/macros/s/AKfycbxOJXEmayqgV858S6JfPJycVryYmkkpGqlvG_MM88rKRfy_C1Kt9JHD9h3eAmpCZX1wPA/exec"
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", Url+"?"+encodedForm, true ); // false for synchronous request
+    xmlHttp.open( "GET", Url+"?"+encodedForm, true );
     xmlHttp.send();
     xmlHttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        //console.log(XMLHttp.responseText);
         callback(xmlHttp.responseText);
     }
   }
@@ -2394,7 +2392,7 @@ function changeLocation(newLocation) {
 function getFile() {
 
   const files = document.querySelector('input').files;
-  console.log("Wgrano " + files[0].name);
+  console.log("Wgrano " + files[0].name); // TODO: więcej niż jeden plik (że ostatni zawsze brać)
   const file = files[0];
 
 
@@ -2405,14 +2403,16 @@ function getFile() {
   reader.onload = function() {
      const readFile = reader.result;
      const valid = validator(JSON.parse(readFile));
-     console.log("valid "+valid);
-     // TODO: tu chyba tworzymy obrazki z mathjaxa
-     // TODO: komunikacja z gs
+     //console.log("valid "+valid);
      if(valid == true){
+       //todo pictures from tex, upload somewhere
      const communication = require('./communication.js');
      var encodedForm =require('query-string').stringify({"encoded": readFile});
      console.log(encodedForm);
      communication(encodedForm, changeLocation);
+   }
+   else {
+     alert("Zły format JSONa")
    }
 
   };
