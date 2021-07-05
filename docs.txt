@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/53415875/nodejs-child-process-package-fails-to-work-for-python-script-only-when-using-cer
+^ dotyczy odpalania pythona z node js V
+https://github.com/browserify/browserify/issues/1816
+
+pythonowo:
+opengv
+pdf2image
+tex2pic
