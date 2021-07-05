@@ -4,18 +4,29 @@ from pdf2image import convert_from_path
 import numpy as np
 import cv2
 
+tex = "qst"+sys.argv[2]+".tex"
+pdf = "temp"+sys.argv[2]+".pdf"
+pic = "temp"+sys.argv[2]+".png" ## pdf-size png
+png = "qst"+sys.argv[2]+".png"  ## output
 
-f = open(sys.argv[5])
-r = tex2pix.Renderer(f, runbibtex=True, extras=[])
-r.mkpdf('example.pdf')
+template = open("texTemplate.tex", "r");
+texContent = template.read().replace("%excercise%", sys.argv[1])
 
-pages = convert_from_path('example.pdf', 500)
+texFile= open(tex,  "w")
+texFile.write(texContent)
+texFile.close()
 
-pages[0].save('out.png', 'PNG')
+
+texReader = open(tex)
+renderer = tex2pix.Renderer(texReader, runbibtex=True, extras=[])
+renderer.mkpdf(pdf)
+
+pages = convert_from_path(pdf, 500)
+pages[0].save(pic, 'PNG')
 
 
 ## (1) Convert to gray, and threshold
-img =cv2.imread('out.png')
+img =cv2.imread(pic)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 th, threshed = cv2.threshold(gray, 240, 255, cv2.THRESH_BINARY_INV)
 
@@ -30,4 +41,7 @@ cnt = sorted(cnts, key=cv2.contourArea)[-1]
 ## (4) Crop and save it
 x,y,w,h = cv2.boundingRect(cnt)
 dst = img[y:y+h, x:x+w]
-cv2.imwrite(sys.argv[6], dst)
+cv2.imwrite(png, dst)
+
+os.remove(pic)
+os.remove(pdf)

@@ -2333,8 +2333,9 @@ module.exports = (string, separator) => {
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => `%${x.charCodeAt(0).toString(16).toUpperCase()}`);
 
 },{}],11:[function(require,module,exports){
-module.exports = function (encodedForm, callback)
-{
+module.exports = {
+  toGoogle: function (encodedForm, callback)
+  {
     const Url ="https://script.google.com/macros/s/AKfycbxOJXEmayqgV858S6JfPJycVryYmkkpGqlvG_MM88rKRfy_C1Kt9JHD9h3eAmpCZX1wPA/exec"
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", Url+"?"+encodedForm, true );
@@ -2342,6 +2343,21 @@ module.exports = function (encodedForm, callback)
     xmlHttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         callback(xmlHttp.responseText);
+      }
+   }
+ },
+  toPython: function (encodedForm, callback)
+  {
+      const Url ="http://localhost:3000/tex2png"
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", Url+"?"+encodedForm, true );
+      xmlHttp.send();
+      xmlHttp.onreadystatechange = function() { // tu się coś nie odzywa. po prostu. może zamiast xml requesta powinno się zrobić coś innego i odpalać z przeglądarki
+        console.log("ready state change");
+        if (this.readyState == 4 && this.status == 200) {
+          console.log("done:)");
+          callback();
+      }
     }
   }
 }
@@ -2358,7 +2374,7 @@ module.exports = function (json){
     "properties": {
       "type": {"type": "string", "enum": ["checkBox"]}, //// TODO:  rodzaje pytań
       "text": {"type": "string"},
-      "tex": {"type": "string"},
+      "tex": {"type": "boolean"},
       "answers": {"type": "array", "items": {"type": "string"}},
       "points": {"type": "string", "enum": ["linear", "exponential"]} //// TODO: rodzaje punktacji
     }
@@ -2370,7 +2386,7 @@ module.exports = function (json){
     "title": {"type": "string"},
     "questions": {"type": "array", "items": {"$ref": "question"}
   }}}
-  
+
   validator.addSchema(question, '/question');
   return validator.validate(json, schema).valid;
 }
@@ -2389,6 +2405,12 @@ function changeLocation(newLocation) {
   window.location.assign(newLocation);
 }
 
+function sendToGoogle(communication, encodedForm){
+  return (() => {
+    communication.toGoogle(encodedForm, changeLocation);
+  })
+}
+
 function getFile() {
 
   const files = document.querySelector('input').files;
@@ -2397,23 +2419,26 @@ function getFile() {
 
 
   const validator = require('./jsonValidator.js');
+
   let reader = new FileReader();
   reader.readAsText(file);
 
   reader.onload = function() {
      const readFile = reader.result;
-     const valid = validator(JSON.parse(readFile));
+     const json = JSON.parse(readFile);
+     const valid = validator(json);
      //console.log("valid "+valid);
      if(valid == true){
-       //todo pictures from tex, upload somewhere
-     const communication = require('./communication.js');
-     var encodedForm =require('query-string').stringify({"encoded": readFile});
-     console.log(encodedForm);
-     communication(encodedForm, changeLocation);
-   }
-   else {
-     alert("Zły format JSONa")
-   }
+        //todo pictures from tex, upload somewhere
+        const communication = require('./communication.js');
+        var encodedForm =require('query-string').stringify({"encoded": readFile});
+        console.log(encodedForm);
+        //communication.toPython(encodedForm, sendToGoogle(communication, encodedForm));
+        changeLocation("http://localhost:3000/tex2png?"+encodedForm)
+     }
+     else {
+       alert("Zły format JSONa")
+     }
 
   };
 
