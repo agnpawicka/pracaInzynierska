@@ -8,6 +8,7 @@ module.exports = {
     xmlHttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         callback(xmlHttp.responseText);
+        //return xmlHttp.responseText;
       }
    }
  },

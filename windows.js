@@ -31,6 +31,8 @@ function getFile() {
   reader.onload = function() {
      const readFile = reader.result;
      const json = JSON.parse(readFile);
+     // w tym miejscu wysyłamy na serwer i niech się dzieje wola nieba. :) -> walidacja, konwersja, wysyłka.
+     //w odpowiedzi przekierowujemy na odpowiednią stronę -> informacja o blędzie lub gotowy formularz.
      const valid = validator(json);
      //console.log("valid "+valid);
      if(valid == true){
