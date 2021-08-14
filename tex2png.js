@@ -7,7 +7,9 @@ module.exports = function (jsonForm){
   // Tu prawdopodobnie należy mieć wyświetlone jakieś "konwersja tex trwa"
   // I żeby jeszcze było, że reszta kodu czeka na spawny wszystkie... albo zrobić jeden spawn?
   for(var i in qst){
-    const python = spawn('python', ['tex2png.py', qst[i].text, i]);
+    if(qst[i].tex){
+      const python = spawn('python', ['tex2png.py', qst[i].text, i]);
+    }
   }
   return "hasa sobie?"
 }

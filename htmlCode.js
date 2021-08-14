@@ -1,6 +1,20 @@
 function changeLocation(newLocation) {
   window.location.assign(newLocation);
 }
+function makeHttpRequest(Url, callback){
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", Url, true );
+  xmlHttp.send();
+  xmlHttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+     // TODO: to jest miejsce, gdzie trzeba ogarnąć co zrobić z wynikiem :)
+     console.log("dotarło");
+     callback();
+   }
+ }
+     //alert(xmlHttp.responseText);
+      //changeLocation(xmlHttp.responseText);
+}
 
 function getFile() {
 
@@ -20,16 +34,8 @@ function getFile() {
 
        const Url ="http://localhost:3000/uploadJsonFile?encoded="+JSON.stringify(json)
        console.log("encoded="+JSON.stringify(json));
-       var xmlHttp = new XMLHttpRequest();
-       xmlHttp.open( "GET", Url, true );
-       xmlHttp.send();
-       xmlHttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-          // TODO: to jest miejsce, gdzie trzeba ogarnąć co zrobić z wynikiem :)
-          alert(xmlHttp.responseText);
-           //changeLocation(xmlHttp.responseText);
-          }
-       }
+       makeHttpRequest(Url, function () { makeHttpRequest("http://localhost:3000/createForm?", function(){console.log("tadam");})})
+           
     }catch(error){
        alert("Uploaded file have wrong format");
     }
