@@ -72,7 +72,7 @@ console.log(encodedForm);
       console.log(`statusCode: ${res.statusCode}`)
       var redirect = res.headers.location;
       res.on('data', d => {
-        console.log(redirect);
+        console.log(redirect); // TODO: pliczek!
       })
   })
   request.on('error', error => {
@@ -83,6 +83,33 @@ console.log(encodedForm);
   request.end()
 })
 
+app.get('/getInfo', (req, res) =>{
+  var encodedRequest ="formId="+req.query.formId+"&action="+req.query.action;
+  // TODO: w odpowiednich akcjach trzeba do pliczku
+  var data = '';
+  const options = {
+    hostname: 'script.google.com',
+    path: '/macros/s/AKfycbxOJXEmayqgV858S6JfPJycVryYmkkpGqlvG_MM88rKRfy_C1Kt9JHD9h3eAmpCZX1wPA/exec?'+encodedRequest,
+    method: 'GET'
+  }
+  console.log("REQUEST   :   "+ options.hostname+options.path);
+  // TODO: ogarnąć kwestię "301 moved permanently" -> trzeba obsługę błędu zrobić
+  var https = require('https');
+  const request = https.request(options, res => {
+      console.log(`statusCode: ${res.statusCode}`)
+
+      res.on('data', d => {
+        console.log(d);
+      })
+  })
+  request.on('error', error => {
+    console.error("error:" + error)
+  })
+
+  request.write()
+  request.end();
+
+})
 
 
 

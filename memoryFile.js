@@ -1,0 +1,1 @@
+const memory =JSON.parse('{"forms" : [{"id" : "1d5uFvBEIT8UUAb1I11PFmsjv7vemiJYj8IvMwNJTHqo", "date" : "2021-08-17", "name" : "NowyFormularzParametryzowany"}, {"id" : "1d5uFvBEIT8UUAb1I11PFmsjv7vemiJYj8IvMwNJTHqo", "date" : "2021-08-17", "name" : "NowyFormularzParametryzowany"}]}');
