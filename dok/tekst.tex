@@ -1,0 +1,46 @@
+% Opcje klasy 'iithesis' opisane sa w komentarzach w pliku klasy. Za ich pomoca
+% ustawia sie przede wszystkim jezyk i rodzaj (lic/inz/mgr) pracy, oraz czy na
+% drugiej stronie pracy ma byc skladany wzor oswiadczenia o autorskim wykonaniu.
+\documentclass[lic,shortabstract]{iithesis}
+% Własne dodatkowe pakiety:
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc}
+
+%% Makra dla tytułów, które pojawiają się także w streszczeniu
+
+%%%%% DANE DO STRONY TYTUŁOWEJ
+% Niezaleznie od jezyka pracy wybranego w opcjach klasy, tytul i streszczenie
+% pracy nalezy podac zarowno w jezyku polskim, jak i angielskim.
+% Pamietaj o madrym (zgodnym z logicznym rozbiorem zdania oraz estetyka) recznym
+% zlamaniu wierszy w temacie pracy, zwlaszcza tego w jezyku pracy. Uzyj do tego
+% polecenia \fmlinebreak.
+\polishtitle    {tytul}
+\polishabstract {streszczenie}
+% w pracach wielu autorow nazwiska mozna oddzielic poleceniem \and
+\author         {Agnieszka Pawicka}
+% w przypadku kilku promotorow, lub koniecznosci podania ich afiliacji, linie
+% w ponizszym poleceniu mozna zlamac poleceniem \fmlinebreak
+
+\advisor        {dr Jan Otop}
+\date          {Wrocław 2021} % 4 września 2020}                     % Data zlozenia pracy
+% Dane do oswiadczenia o autorskim wykonaniu
+\transcriptnum {300167}                     % Numer indeksu
+\advisorgen    {dr. Jana Otopa} % Nazwisko promotora w dopelniaczu
+%%%%%
+
+\begin{document}
+
+%%%%% POCZĄTEK ZASADNICZEGO TEKSTU PRACY
+\input{wprowadzenie}
+
+\input{srodowisko}
+\input{opisTechniczny}
+\input{instrukcja}
+\input{konkluzje}
+%%%%% BIBLIOGRAFIA
+
+
+\appendix
+
+\end{document}

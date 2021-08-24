@@ -3,17 +3,10 @@ module.exports = function (json){
 
   var Validator = require('jsonschema').Validator;
   var validator=  new Validator();
-  var answer = {
-    "id" : "/answer",
-    "type" : "object",
-    "properties" : {
-      "answer" : {"type" : "string"},
-      "correct" : {"type" : "boolean"}
-    }
-  };
   var question = {
     "id": "/question",
     "type": "object",
+    "required": ["type", "text", "tex", "answers"],
     "properties": {
       "type": {"type": "string", "enum": ["checkBox"]}, //// TODO:  rodzaje pytań
       "text": {"type": "string"},
@@ -22,18 +15,19 @@ module.exports = function (json){
         "answer" : {"type" : "string"},
         "correct" : {"type" : "boolean"}
       },
-      "points": {"type": "number"} //// TODO: rodzaje punktacji
+      "points": {"type": "number"}
     }
   };
   var schema = {
-    "id": "/test",
+    "id": "/schema",
     "type": "object",
+    "required": ["title", "questions"],
     "properties": {
     "title": {"type": "string"},
     "questions": {"type": "array", "items": {"$ref": "question"}
   }}}
 
-//  validator.addSchema(answer, '/answer');
   validator.addSchema(question, '/question');
+  //console.log(validator.validate(json, schema));
   return validator.validate(json, schema).valid;
 }

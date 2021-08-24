@@ -88,7 +88,7 @@
 
 \DeclareOption*{\ClassWarningNoLine{iithesis}{Unknown option `\CurrentOption'}}
 
-\ExecuteOptions{polish,lic,longabstract}
+\ExecuteOptions{polish,inz,shortabstract}
 \ProcessOptions\relax
 
 \RequirePackage[T1]{fontenc}

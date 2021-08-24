@@ -1,13 +1,12 @@
 import sys, os
 import tex2pix
 from pdf2image import convert_from_path
-import numpy as np
 import cv2
 import base64
 
 tex = "qst"+sys.argv[2]+".tex"
 pdf = "temp"+sys.argv[2]+".pdf"
-pic = "temp"+sys.argv[2]+".png" ## pdf-size png
+pic = "temp"+sys.argv[2]+".png" ## pdf-size png3
 png = "pictures/qst"+sys.argv[2]+".png"  ## output
 bas = "pictures/base64"+sys.argv[2]+".txt" ## base64 output
 
@@ -23,7 +22,8 @@ texReader = open(tex)
 renderer = tex2pix.Renderer(texReader, runbibtex=True, extras=[])
 renderer.mkpdf(pdf)
 
-pages = convert_from_path(pdf, 500)
+#pages = convert_from_path(pdf, 500)
+pages = convert_from_path(pdf)
 pages[0].save(pic, 'PNG')
 
 
@@ -53,3 +53,4 @@ base64File.close()
 
 os.remove(pic)
 os.remove(pdf)
+return

@@ -11,5 +11,5 @@ module.exports = function (jsonForm){
       const python = spawn('python', ['tex2png.py', qst[i].text, i]);
     }
   }
-  return "hasa sobie?"
+  return true;
 }
