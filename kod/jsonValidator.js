@@ -6,14 +6,15 @@ module.exports = function (json){
   var question = {
     "id": "/question",
     "type": "object",
-    "required": ["type", "text", "tex", "answers"],
+    "required": ["type", "text", "tex"],
     "properties": {
       "type": {"type": "string", "enum": ["checkBox"]}, //// TODO:  rodzaje pytań
       "text": {"type": "string"},
       "tex": {"type": "boolean"},
-      "answers": {
+      "answers": { "type": "array", "items" : {
         "answer" : {"type" : "string"},
         "correct" : {"type" : "boolean"}
+        }
       },
       "points": {"type": "number"}
     }
@@ -24,6 +25,8 @@ module.exports = function (json){
     "required": ["title", "questions"],
     "properties": {
     "title": {"type": "string"},
+    "email": {"type": "string"},
+    "check": {"type": "boolean"},
     "questions": {"type": "array", "items": {"$ref": "question"}
   }}}
 
