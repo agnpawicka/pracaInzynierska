@@ -3,8 +3,8 @@
 Nabudowywanie na gotowym narzędziu wymaga dostępu do niego. Google udostępnia API operujące na całym szeregu klas i metod oferowanych usług. Kod przypisany jest do danego konta google, możliwe jest ustawienie parametrów,  takich  jak: kto ma dostęp do nowotworzonej aplikacji internetowej (właściciel, zalogowany użytkownik danej organizacji, dowolny zalogowany użytkownik, każdy) pod czyim kontem jest ona uruchamiana (właściciela/współwłaściciela, czy też zalogowanego użytkownika). 
 
 \paragraph{Framework}
-Udostępnione API w pewnym stopniu wymusza na użytkownikach, aby kod wykonywany na infrastrukturze Google'a był napisany w javascripcie, we framework'u ,,Google Apps Script''. Program jest wykonywany po stronie serwera. Pozwala on na stosunkowo łatwe manipulowanie działaniem produktów Google takich jak formularze, arkusze, dysk i inne. \\
-Framework powstał w 2009 roku, w JavaScript 1.6, jest jednak regularnie ulepszany.
+Udostępnione API w pewnym stopniu wymusza na użytkownikach, aby kod wykonywany na infrastrukturze Google'a był napisany w javascripcie, we framework'u ,,Google Apps Script''. Program jest wykonywany po stronie serwera. Pozwala on na stosunkowo łatwe manipulowanie działaniem produktów Google takich jak formularze, arkusze, dysk i inne. 
+\ind Framework powstał w 2009 roku, w JavaScript 1.6, jest jednak regularnie ulepszany.
 
 \paragraph{Komunikacja}
  Apps Script udostępnia komunikację przez HTTP - jeśli projekt zawiera funkcje doGet(e){} / doPost(e){} - odpowiednie rządania wykonują kod z ciała tych metod. Zwracane wartości prowadzą do przekierowań zapytań  - %TODO cdn? Rafcio powie
@@ -24,24 +24,24 @@ Interfejs silnie związany z ,,sercem'' Node.js - udostępnia narzędzia do komu
 \item response - odpowiada za odpowiedzi serwera
 \item router - zajmuje się routingiem, może być używane jako oprogramowanie pośredniczące
 \end{itemize}
-\\Dokumentacja znajduje się tutaj: \href{https://expressjs.com/}{expres.js}
+\ind Dokumentacja znajduje się tutaj: \href{https://expressjs.com/}{expres.js}
 \paragraph{cors}
 Node.js'owy moduł pozwalający na odpowiednie ustawienia CORS (Cross-Orgin Request Sharing) w rozwiązaniach typu express.
-\\Github modułu: \href{https://github.com/expressjs/cors}{cors}
+\ind Github modułu: \href{https://github.com/expressjs/cors}{cors}
 \paragraph{child\_process}
 Moduł Node.js'owy pozwalający na uruchamianie podprocesów.
-\\Dokumentacja znajduje się tutaj: \href{https://nodejs.org/api/child_process.html}{child\_process}
+\ind Dokumentacja znajduje się tutaj: \href{https://nodejs.org/api/child_process.html}{child\_process}
 \paragraph{jsonschema}
-\\Nowy (zaledwie dziesięciomięczny, wciąż w wersji Beta) moduł pozwalający na walidację formatu json zgodnie z podanym schematem.
-\\Oficjalna strona: \href{https://www.npmjs.com/package/jsonschema}{jsonschema}
+\ind Nowy (zaledwie dziesięciomięczny, wciąż w wersji Beta) moduł pozwalający na walidację formatu json zgodnie z podanym schematem.
+\ind Oficjalna strona: \href{https://www.npmjs.com/package/jsonschema}{jsonschema}
 
 \section{Python}
 Rozwiązania pythonowe zostały wykorzystane w celu konwersji wstawek matematycznych (latex) do zdjęć. Poniżej krótki opis wykorzystanych bibliotek.
 \paragraph{tex2pix} Biblioteka pozwalająca na konwertowanie formatu .tex do różnych formatów zdjęciowych. Metoda konwertująca format .tex na format .png zaczyna od konwersji .tex do .pdf, stąd w pracy używana jest konwersja do pdf z tej biblioteki, a dalsze manipulowanie formatem używa innych - subiektywnie prostszych w użytkowaniu - bibliotek. 
-\\Oficjalna strona: \href{https://pypi.org/project/tex2pix/}{tex2pix}.
+\ind Oficjalna strona: \href{https://pypi.org/project/tex2pix/}{tex2pix}.
 
 \paragraph{pdf2image} Biblioteka  umożliwiająca konwersję formatu pdf do formatów zdjęciowych.
-\\Oficjalna strona: \href{https://pypi.org/project/pdf2image/}{pdf2image}.
+\ind Oficjalna strona: \href{https://pypi.org/project/pdf2image/}{pdf2image}.
 \paragraph{opencv} Biblioteka pozwalająca na manipulację obrazami. Udostępnia znacznie więcej możliwości niż te użyte w pracy. W szczególności pozwala na przycinanie obrazów względem ich kolorystyki - co pozwala na automatyczne przycięcie strony pdf do rozmiarów napisanego na niej tekstu. Więcej informacji na temat biblioteki: \href{https://pypi.org/project/opencv-python/}{opencv}
 \paragraph{base64} Biblioteka pozwala na konwersję obrazu do formatu Base64 - używanego w pracy do przesyłu obrazów pomiędzy serwerami node'owym a google'owym. 
 
