@@ -10,14 +10,14 @@ Poza tym lokalny serwer wykorzystuje kilka bibliotek JavaScriptowych oraz Python
 \\tu będzie schemat narysowany\\%TODO
 \section{Interfejs użytkownika}%TODO napisać o json sxhema i zlinkować następny rozdział (instrukcja, schemat
 Na interfejs użytkownika składają się trzy pliki: \textit{strona.html}, \textit{memoryFile.js} oraz \textit{htmlCode.js} - pierwszy z nich koduje część wizualną, drugi dane na temat formularzy, trzeci jest odpowiedzialny za zachowanie poszczególnych elementów, w tym za komunikację z serwerem. 
-\ind Na wygląd aplikacji składają się:
+\ind Elementami interfejsu są:
 \begin{itemize}
 \item pole do wgrywania plików, przyjmujące formaty .json oraz .txt. Zawartość powinna spełniać wymagania opisane w instrukcji w podrozdziale 4.2, %TODO link zrobić.
 \item przycisk wgrywający plik - ,,generate form'' wywołuje metodę getFile,
 \item listę formularzy, w której poprzez kliknięcie można wybrać formularz,
 \item kilka przycisków powiązanych z metodą getInfo().
 \end{itemize}
-\ind Plik \textit{memoryFile.js} jest modyfikowany na poziomie serwera lokalnego. Jako kod zawiera on wyłacznie deklarację stałej ,,memory'', będącej obiektem JSON następującej budowy:
+\ind Plik \textit{memoryFile.js} jest modyfikowany przez serwer lokalny i służy do zapamiętywania formularzy utworonych przez aplikację. Jako kod zawiera on wyłącznie deklarację stałej ,,memory'', będącej obiektem JSON następującej budowy:
 \begin{lstlisting}[language=json,firstnumber=1]
 {"forms":
     [{"id": "string",
@@ -26,13 +26,13 @@ Na interfejs użytkownika składają się trzy pliki: \textit{strona.html}, \tex
     ]
 }
 \end{lstlisting}
-Wartość ,,id'' jest generowana przez Google przy tworzeniu formularza, ,,date'' to data utworzenia formularza (rok-miesiąc-dzień), ,,name'' odpowiada tytułowi.
+Wartość ,,id'' jest generowana przez usługę Google'a przy tworzeniu formularza, ,,date'' to data utworzenia formularza (rok-miesiąc-dzień), ,,name'' odpowiada tytułowi.
 \ind Wartość ,,selectedForm'' z pliku \textit{htmlCode.js} odpowiada identyfikatorowi formjlarza obecnie podświetlonego na niebiesko na liście formularzy. Metody zaimplementowane w \textit{htmlCode.js}:
 \begin{itemize}
 \item changeLocation(newLocation) - pozwala na zmianę wyświetlanego adresu,
 \item makeHttpRequest(Url, callback) - wysyła rządanie GET do lokalnego serwera (adres URL zależny jest od rodzaju przeprowadzanej akcji), w przypadku pozytywnej odpowiedzi (HTTP status 200) wywołuje metodę callback,
 \item getInfo(action) - metoda przypisana większości przycisków interfejsu, jest odpowiedzialna za odpowiednie wywołanie makeHttpRequest,
-\item getFile() - funkcja przypisana do przycisku ,,Generate form'', pobiera wgrany plik, sprawdza, czy jest on poprawnym JSONem i wywołuje makeHttpRequest z odpowiednimi argumentami.
+\item getFile() - funkcja przypisana do przycisku ,,Generate form'', wczytuje wgrany plik, sprawdza, czy jest on poprawnym JSONem i wywołuje makeHttpRequest z odpowiednimi argumentami.
 \item assign(id) - metoda przypisana do elementów listy formularzy, ustawia wartość ,,selectedForm'' przy każdej zmianie wybranego z listy formularza,
 \item generateList() - tworzy listę formularzy na podstawie \textit{memoryFile.js}, jest uruchamiana przy ładowaniu strony.
 \end{itemize}
@@ -47,7 +47,7 @@ Plik \textit{communication.gs} zawiera implementację metod doPost(e)oraz doGet(
 \begin{itemize}
 \item formId - identyfikator formularza przypisywany automatycznie w momencie tworzenia,
 \item action - pole tekstowe mówiące o tym, co autor zapytania chce zrobić. Obsługiwane wartości:
-\begin{itemize}e
+\begin{itemize}
 \item \textit{isActive} zwraca wiadomość tekstową informującą o tym, czy formularz przyjmuje odpowiedzi,
 \item \textit{activate} aktywuje formularz (po wykonaniu tej częsci formularz przyjmuje odpowiedzi),
 \item \textit{deactivate} dezaktywuje formularz,
@@ -79,20 +79,20 @@ Aplikacja korzysta z bibliotek ,,express'', ,,cors'', ,,fs'', ,,https'', ,,jsons
 Zaimplementowana metoda \textit{makeRequest(options, data)} służy do komunikacji z serwerem po stronie Google'a.
 \ind Zasady działania poszczególnych fragmentów są opisane w odpowiednich podrozdziałach.
 \subsection{Komunikacja międzyserwerowa}
-Za komunikację pomiędzy serwerami odpowiedzialna jest metoda makeRequest(options, data) korzystająca z Node.js'owej biblioteki https. Zasada działania biblioteki jest następująca - https request przyjmuje dwa argumenty: pierwszy (options) deklaruje szereg parametrów ( adres URL zapytania, typ metody, zawartość, nagłówki zapytania itp.), drugi jest metodą wywoływaną na wartości zwracanej przez zapytanie. 
+Za komunikację pomiędzy serwerami odpowiedzialna jest metoda makeRequest(options, data) korzystająca z Node.js'owej biblioteki ,,https''. Zasada działania biblioteki jest następująca - https request przyjmuje dwa argumenty: pierwszy (options) deklaruje szereg parametrów ( adres URL zapytania, typ metody, zawartość, nagłówki zapytania itp.), drugi jest metodą wywoływaną na wartości zwracanej przez zapytanie. 
 \ind Funkcja makeRequest(options, data) jako argumenty przyjmuje klasę options (zdefiniowaną w bibliotece https) oraz dane do przesłania. Zwraca konstrukcję Promise pozwalającą na szeregowanie kolejnych zapytań. Wewnątrz metody przechwytującej odpowiedź obsługiwane jest przekierowanie zapytania (wysyłane z każdą odpowiedzią Google'a zawierającą zawartość) - czyli wysyłane kolejne zapytanie do nowego adresu.
 \subsection{Ścieżki serwera}
 Poniżej przedstawiono obsługiwne ścieżki serwera wraz z opisem ich działania.
-\paragraph{uploadJsonFile} Ścieżka pozwala na wgranie na serwer zakodowanefo formularza i wstępne przedworzenie go. Scieżka wywoływana z metody getFile() (patrz interfejs użytkownika, rozdział 3.1). Na początku kontrolowana jest zgodność kodowania ze schematem (plik \textit{jaonValidator}). Jeśli podany plik jest zgodny, przeprowadzana jest konwersja \LaTeX{}'a do zdjęć (plik \textit{tex2png.js}). Po tym etapie informacja o zgodności jest zwracana do interfejsu.
+\paragraph{uploadJsonFile} Ścieżka pozwala na wgranie na serwer zakodowanego formularza i wstępne przetworzenie go. Ścieżka wywoływana jest z metody getFile() (patrz interfejs użytkownika, rozdział 3.1). Na początku kontrolowana jest zgodność kodowania ze schematem (plik \textit{jsonValidator}). Jeśli podany plik jest zgodny, przeprowadzana jest konwersja \LaTeX{}'a do zdjęć (plik \textit{tex2png.js}). Po tym etapie informacja o zgodności jest zwracana do interfejsu.
 \paragraph{createForm} Jeśli interfejs otrzyma informację o zgodności wgranego JSONa ze schematem, wywołuje zapytanie do serwera na ścieżce createForm. W tym miejscu dla pytań z wartością ,,tex''=true serwer podmienia wartości ,,text'' pytań na kodowanie zdjęć w base64. Następnie wysyłane jest zapytanie POST do serwera po stronie Google'a z zakodowanym formularzem. Jeśli nie będzie błędów - zwrócona odpowiedź będzie zawierała identyfikator nowego formularza. W tym miejscu następuje również modyfikacja pliku \textit{memoryFile.js} - dodawany jest nowy element tabeli- data jest pobierana z klasy ,,Date'', nazwa z pola ,,title'' z kodowania formularza. Na koniec zwracana jest informacja do intefejsu.
-\paragraph{getInfo} Za pomocą tej ścieżki  przekazywana jest komunikacja dotycząca istniejących formularz pomiędzy interfacem a serwerem Google'owym. Jest to też miejsce modyfikacji pliku \textit{memoryFile.js} - dla rządania ,,delete'' usuwany jest wpis dotyczący danego formularza.
+\paragraph{getInfo} Za pomocą tej ścieżki  przekazywana jest komunikacja dotycząca istniejących formularz pomiędzy interfacem a serwerem Google'owym. Jest to też miejsce modyfikacji pliku \textit{memoryFile.js} - dla żądania ,,delete'' usuwany jest wpis dotyczący danego formularza.
 \subsection{JSON validation} Plik zawiera deklarację schematu JSON (patrz: instrukcja, rozdział 4.2). Za pomocą biblioteki jsonschema wykonywana jest walidacja zawartości przesłanego pliku.
 \subsection{Plik tex2png.js} Zadaniem tego modułu jest uruchomienie nowych procesów (child\_process.spawn)  - skrypt \textit{tex2png.py} w Pythonie zajmuje się konwersją tekstu na zdjęcia odpowiednich rozmiarów.
 \section{Konwersja wstawek z\LaTeX{}'a}
 Niniejsza część korzysta z podstawowej bibioteki \LaTeX{}'a, szablon tworzonych zdjeć stanowi plik \textit{texTemplate.tex}. Wszystkie tworzone pliki znajdują się w folderze \textit{pictures}.
-\ind Decyzja o napisaniu tej części w Pythonie powstała sposunkowo późno. Powodem jest biblioteka openCV - udostępniająca zaawansowane metody obliczeniowe w przystępny sposób. Skrypt działa następująco:
+\ind Decyzja o napisaniu tej części w Pythonie powstała stosunkowo późno. Powodem jest biblioteka openCV - udostępniająca zaawansowane metody obliczeniowe w przystępny sposób. Skrypt działa następująco:
 \begin{itemize}
-\item Wczytywany jest szablon w \LaTeX{}\u i w odpowiednie miejsce wstawiany jest tekst z pytania (oznaczonego tex=true) - warto wspomnieć, że treść pytania jest otoczona ramką.
+\item Wczytywany jest szablon w \LaTeX{}'u i w odpowiednie miejsce wstawiany jest tekst z pytania (oznaczonego tex=true) - warto wspomnieć, że treść pytania jest otoczona ramką.
 \item Za pomocą biblioteki tex2pix plik .tex jest konwertowany do formatu pdf.
 \item Biblioteka pdf2image konwertuje pdf'a do png.
 \item Biblioteka openCV pozwala na ,,wycięcie'' ze zdjęcia wyłącznie obszaru otoczonego ramką (jako jedyny zawiera kolory).
