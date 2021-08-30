@@ -1,1 +1,0 @@
-{"title": "Nowy Formularz Testowy parametryzowany", "questions": [{"type": "checkBox", "text": "Ulubione zwierzę?", "tex": true, "answers": ["kot", "pies", "mysz", "chomik", "bizon", "jeż"], "points": "linear" }, {"type": "checkBox", "text": "Ulubione zwierzę? $x^{\\delta}$", "tex": true, "answers": ["kot", "pies", "mysz", "chomik", "bizon", "jeż"], "points": "linear" }]}

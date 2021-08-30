@@ -1,0 +1,12 @@
+\chapter{Podsumowanie}%problemy i rozwój o konkluzje
+
+\section{Wnioski}
+Celem pracy była implementacja narzędzia pozwalającego na uproszczenie przeprowadzania testów i ankiet online w oparciu o istniejące już rozwiązanie - Google Forms.  Efektem jest program, ułatwiający pracę z formularzami Google'a poprzez umożliwienie automatycznego gemerowania pytań oraz konwersję symboli matematycznych.  Możliwe jest jednak dalsze rozwijanie narzędzia. 
+
+\section{Rozwój}
+Możliwych rozszerzeń jest wiele - niniejszy rozdział opisuje kilka z nich.
+\paragraph{Zarządzanie przesłanymi odpowiedziami} - Google Apps Script udostępnia klasę ItemResponse - odpowiedzialną za zarządzanie odpowiedziami respondentów. Możliwe jest przechwytywanie odpowiedzi, oceny (wystawionej automatycznie, jeśli tak ustawiono), pytania, do którego jest odpowiedz (jako klasy, a wiec razem z możliwymi odpowiedziami, punktami, treścią) a także ustawienie komentarza. Dalej możliwe jest przetwarzanie pozyskanych danych i ocenianie testów przez zewnętrzny program na niestandardowych zasadach (jak na przykład wykładnicza skala punktowa w zależności od liczby poprawnych odpowiedzi).
+\paragraph{Możliwość ustawiania losowej kolejności pytań} - choć w teorii ten problem jest rozwiązany przez udostępnione API, w praktyce pojawia się problem. Jak wspomniano wyżej - API formularzy, nie udostępnia metod wprowadzenia zdjęć do popularnych typów pytań. Powoduje to konieczność utrzymywania dwóch formalnie osobnych pytań (w praktyce pytania-zdjęcia i odpowiedzi) w jednym miejscu w formularzu.
+\paragraph{Ustawianie czasu rozpoczęcia oraz zakończenia testu} - aby mogło się to odbywać automatycznie, potrzebne jest urządzenie, które będzie reguarnie i w krótkich odstępach czasowych sprawdzało, czy należy już wysłać odpowiednie zapytanie do zaimplementowanej aplikacji, czy jeszcze nie. Zaimplementowany serwer nie uzwględnia tej możliwości ze względu na konieczność ciągłego trwania w stanie uruchomionym.
+
+
