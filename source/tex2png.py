@@ -1,13 +1,14 @@
 import sys, os
 import tex2pix
 from pdf2image import convert_from_path
-import numpy as np
 import cv2
+import base64
 
 tex = "qst"+sys.argv[2]+".tex"
 pdf = "temp"+sys.argv[2]+".pdf"
-pic = "temp"+sys.argv[2]+".png" ## pdf-size png
-png = "qst"+sys.argv[2]+".png"  ## output
+pic = "temp"+sys.argv[2]+".png" ## pdf-size png3
+png = "pictures/qst"+sys.argv[2]+".png"  ## output
+bas = "pictures/base64"+sys.argv[2]+".txt" ## base64 output
 
 template = open("texTemplate.tex", "r");
 texContent = template.read().replace("%excercise%", sys.argv[1])
@@ -21,9 +22,12 @@ texReader = open(tex)
 renderer = tex2pix.Renderer(texReader, runbibtex=True, extras=[])
 renderer.mkpdf(pdf)
 
-pages = convert_from_path(pdf, 500)
+pages = convert_from_path(pdf)
 pages[0].save(pic, 'PNG')
 
+
+## Code below is taken from:
+## https://stackoverflow.com/questions/48395434/how-to-crop-or-remove-white-background-from-an-image
 
 ## (1) Convert to gray, and threshold
 img =cv2.imread(pic)
@@ -42,6 +46,12 @@ cnt = sorted(cnts, key=cv2.contourArea)[-1]
 x,y,w,h = cv2.boundingRect(cnt)
 dst = img[y:y+h, x:x+w]
 cv2.imwrite(png, dst)
+
+with open(png, "rb") as image_file:
+b64 = base64.b64encode(image_file.read())
+base64File = open(bas, "w")
+base64File.write(b64.decode('utf-8'))
+base64File.close()
 
 os.remove(pic)
 os.remove(pdf)

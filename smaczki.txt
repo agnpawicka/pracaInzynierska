@@ -1,6 +1,0 @@
-1. https://www.npmjs.com/package/query-string  - does not support nesting
-2. browserify
-3. package validator jsonschema
-4. package MathJax
-5. oauth, CORS, not neccesery
-6. documentation said defoult mime type is TEXT. Hell no!
