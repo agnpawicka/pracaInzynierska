@@ -1,64 +1,62 @@
 <!DOCTYPE html>
+<!--Plik implementujący graficzną część interfejsu.-->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Wtyczka do google forms</title>
+        <title>Wtyczka do Google Forms</title>
+        <!--htmlCode.js - plik z metodami do obsługi przycisków-->
         <script src="htmlCode.js"></script>
+        <!--memoryFile.js - plik informacjami o formularzach-->
+        <script src="memoryFile.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-        <script src="memoryFile.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-
     </head>
 
-     <body onload="generateList()">
+    <body onload="generateList()">
       <div class="container">
-      <div class="row" align-items-center>
-        <div class="col-2"></div>
-        <div class="col-8">
-          <div class="input-group">
-            <input type="file" class="form-control" placeholder="search.." aria-label="File" id="encodedForm" accept=".json,.txt" >
-
-            <button class="btn btn-outline-secondary" type="submit" onclick="getFile()">Generate form</button>
+        <div class="row" align-items-center>
+          <div class="col-2"></div>
+          <div class="col-8">
+            <div class="input-group">
+              <input type="file" class="form-control" placeholder="search.." aria-label="File" id="encodedForm" accept=".json,.txt" >
+              <button class="btn btn-outline-secondary" type="submit" onclick="getFile()">Generate form</button>
+            </div>
           </div>
-        </div>
-        <div class="col-2"></div>
-        <div class="col-2"></div>
-        <div class="col-8">
+          <div class="col-2"></div>
+          <div class="col-2"></div>
+          <div class="col-8">
             <p id = "response" class="text-center"><br><br><br></p>
-        </div>
-        <div class="col-2"></div>
-        <div class="col-6">
-          <div class="list-group" id="list">
+          </div>
+          <div class="col-2"></div>
+          <div class="col-6">
+            <div class="list-group" id="list">
           </div>
         </div>
+        <div class="col-3"></div>
         <div class="col-3">
-        </div>
-        <div class="col-3">
-            <div class="row" align-items-center>
-          <button type="button" class="btn btn-info" onclick="getInfo('isActive')" >Is form Active</button>
-        </div><br>
+          <div class="row" align-items-center>
+            <button type="button" class="btn btn-info" onclick="getInfo('isActive')" >Is form Active</button>
+          </div><br>
           <div class="row" align-items-center>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-success" onclick="getInfo('activate')">Activate</button>
             <button type="button" class="btn btn-warning" onclick="getInfo('deactivate')">Desactivate</button>
           </div>
-        </div><br>
+          </div><br>
           <div class="row" align-items-center>
-          <button type="button" class="btn btn-danger" onclick="getInfo('delete')">Delete form</button>
-        </div><br>
+            <button type="button" class="btn btn-danger" onclick="getInfo('delete')">Delete form</button>
+          </div><br>
           <div class="row" align-items-center>
             <button type="button" class="btn btn-light" onclick="getInfo('publisherUrl')" >GetPublisherUrl</button>
           </div><br>
-            <div class="row" align-items-center>
+          <div class="row" align-items-center>
             <button type="button" class="btn btn-dark" onclick="getInfo('editorUrl')">GetEditorUrl</button>
           </div>
-          </div>
         </div>
+      </div>
     </div>
-
-    </body>
-
+  </body>
 </html>

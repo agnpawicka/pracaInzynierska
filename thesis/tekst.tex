@@ -1,7 +1,7 @@
 % Opcje klasy 'iithesis' opisane sa w komentarzach w pliku klasy. Za ich pomoca
 % ustawia sie przede wszystkim jezyk i rodzaj (lic/inz/mgr) pracy, oraz czy na
 % drugiej stronie pracy ma byc skladany wzor oswiadczenia o autorskim wykonaniu.
-\documentclass[lic,shortabstract]{iithesis}
+\documentclass[inz,shortabstract]{iithesis}
 % Własne dodatkowe pakiety:
 \usepackage{graphicx}
 \usepackage{float}
@@ -51,8 +51,10 @@
 % Pamietaj o madrym (zgodnym z logicznym rozbiorem zdania oraz estetyka) recznym
 % zlamaniu wierszy w temacie pracy, zwlaszcza tego w jezyku pracy. Uzyj do tego
 % polecenia \fmlinebreak.
-\polishtitle    {tytul}
-\polishabstract {streszczenie}
+\polishtitle    {Implementacja narzędzia rozszerzającego usługę Google Forms}
+\englishtitle   {Implementation of an extension to Google Forms service}
+\polishabstract {Praca zawiera implementację oraz opis rozszerzenia do usługi Google Forms. Rozszerzenie to pozwala na automatyczne generowanie formularzy z odpowiedniego pliku w formacie JSON, konwertowanie wstawek matematycznych napisanych w \LaTeX{} do odpowiednich symboli oraz zarządzanie niektórymi własnościami utworzynych uprzednio formularzy. W pracy znajduje się również omówienie wykorzystanych technologii oraz możliwego rozwoju narzędzia.}
+\englishabstract{}
 % w pracach wielu autorow nazwiska mozna oddzielic poleceniem \and
 \author         {Agnieszka Pawicka}
 % w przypadku kilku promotorow, lub koniecznosci podania ich afiliacji, linie

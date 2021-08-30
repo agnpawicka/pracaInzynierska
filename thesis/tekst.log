@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.2.15)  30 AUG 2021 20:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.2.15)  31 AUG 2021 00:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -314,27 +314,37 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count268
 \l__pdf_internal_box=\box49
 )
-(./tekst.aux)
+(./tekst.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+)
 \openout1 = `tekst.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -372,7 +382,7 @@ LaTeX Font Info:    ... okay on input line 68.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring OFF on input line 68.
+Package hyperref Info: Link coloring OFF on input line 70.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -384,9 +394,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count269
 )
-LaTeX Info: Redefining \ref on input line 68.
-LaTeX Info: Redefining \pageref on input line 68.
-LaTeX Info: Redefining \nameref on input line 68.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
 
 (./tekst.out) (./tekst.out)
 \@outlinefile=\write3
@@ -416,30 +426,23 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count276
-
-
-Class iithesis Warning: No \englishtitle given.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 68.
+(Font)              <12> on input line 70.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 68.
+(Font)              <8> on input line 70.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 68.
+(Font)              <6> on input line 70.
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-
-Class iithesis Warning: No \englishabstract given.
-
-[3] [4
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 70.
+ [3] [4
 
 ] (./tekst.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 13.
-
 Underfull \vbox (badness 3792) has occurred while \output is active []
 
  [5])
@@ -566,20 +569,42 @@ rom.gs\T1/cmr/m/n/10.95 ,
  []
 
 [17]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 99.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 99.
- [18]) (./instrukcja.tex [19] [20
+<przyklad.png, id=284, 412.6617pt x 260.172pt>
+File: przyklad.png Graphic file (type png)
+<use przyklad.png>
+Package pdftex.def Info: przyklad.png  used on input line 98.
+(pdftex.def)             Requested size: 412.66068pt x 260.17134pt.
 
-]
+Overfull \hbox (14.32207pt too wide) in paragraph at lines 98--99
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 106.
+
+[19pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.111 \item Z
+             a pomocą biblioteki tex2pix plik .tex jest konwertowany do for...
+ <./przyklad.png>]) (./instrukcja.tex [20]
 Rozdzia\l  4..
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [21
+
+]
 [22]
-<strona.png, id=320, 462.528pt x 260.172pt>
+<strona.png, id=324, 462.528pt x 260.172pt>
 File: strona.png Graphic file (type png)
 <use strona.png>
 Package pdftex.def Info: strona.png  used on input line 63.
@@ -624,28 +649,28 @@ Rozdzia\l  5..
 
 ])
 No file tekst.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 83.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
 [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 83.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./tekst.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `tekst.out' has not changed.
-(rerunfilecheck)             Checksum: 5A6DC9BEEF33A6810EE8DF3FE9AA8FB8;4412.
+(rerunfilecheck)             Checksum: 119B8121852F8A501F8B575FE6AC4EB6;4420.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 83.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 12498 strings out of 481239
- 174555 string characters out of 5920377
- 469678 words of memory out of 5000000
- 27478 multiletter control sequences out of 15000+600000
- 549889 words of font info for 57 fonts, out of 8000000 for 9000
+ 12511 strings out of 481239
+ 174727 string characters out of 5920377
+ 470213 words of memory out of 5000000
+ 27488 multiletter control sequences out of 15000+600000
+ 550710 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,37p,926b,1888s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,37p,926b,1888s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/
 fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
@@ -656,13 +681,13 @@ r/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr
 /share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/t
 ype1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super
 /sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfsl1095.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sftt1095.pfb>
-Output written on tekst.pdf (26 pages, 429185 bytes).
+share/texmf/fonts/type1/public/cm-super/sfsl0800.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfsl1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on tekst.pdf (26 pages, 505281 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
- 104 named destinations out of 1000 (max. 500000)
- 259 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 429 PDF objects out of 1000 (max. 8388607)
+ 376 compressed objects within 4 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 
