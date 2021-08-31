@@ -1,0 +1,52 @@
+\begin{thebibliography}{10}
+
+\bibitem{FormsService}
+Google.
+\newblock Dokumentacja forms service w google apps script.
+\newblock \url{https://developers.google.com/apps-script/reference/forms}.
+
+\bibitem{https}
+Node.js.
+\newblock Dokumentacja biblioteki https.
+\newblock \url{https://nodejs.org/api/http.html}.
+
+\bibitem{express}
+Node.js.
+\newblock Dokumentacja framework'u express.js.
+\newblock \url{https://expressjs.com/}.
+
+\bibitem{cors}
+Troy Goode.
+\newblock Dokumentacja biblioteki cors.
+\newblock \url{https://github.com/expressjs/cors}.
+
+\bibitem{childprocess}
+Node.js.
+\newblock Dokumentacja biblioteki child\_process.
+\newblock \url{https://nodejs.org/api/child_process.html}.
+
+\bibitem{jsonschema}
+Tom de~Grunt.
+\newblock Dokumentacja biblioteki jsonschema.
+\newblock \url{https://www.npmjs.com/package/jsonschema}.
+
+\bibitem{tex2pix}
+Andy Buckley.
+\newblock Dokumentacja biblioteki tex2pix (python).
+\newblock \url{https://pypi.org/project/tex2pix/}.
+
+\bibitem{pdf2image}
+Edouard Belval.
+\newblock Dokumentacja biblioteki pdf2image (python).
+\newblock \url{https://pypi.org/project/pdf2image/}.
+
+\bibitem{opencv}
+Maintener: Olli-Pekka Heinisuo.
+\newblock Dokumentacja biblioteki opencv (python).
+\newblock \url{https://pypi.org/project/opencv-python/}.
+
+\bibitem{bootstrap}
+Dokumentacja biblioteki bootstrap.
+\newblock \url{https://getbootstrap.com/}.
+
+\end{thebibliography}

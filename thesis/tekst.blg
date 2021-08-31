@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tekst.aux
+The style file: unsrt.bst
+Database file #1: bibliography.bib
+Warning--empty author in bootstrap
+You've used 10 entries,
+            1791 wiz_defined-function locations,
+            483 strings with 4486 characters,
+and the built_in function-call counts, 952 in all, are:
+= -- 88
+> -- 37
+< -- 0
++ -- 19
+- -- 9
+* -- 5
+:= -- 211
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 10
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 40
+empty$ -- 81
+format.name$ -- 9
+if$ -- 188
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 0
+newline$ -- 52
+num.names$ -- 9
+pop$ -- 11
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 9
+width$ -- 12
+write$ -- 90
+(There was 1 warning)

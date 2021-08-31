@@ -23,6 +23,7 @@ Na interfejs użytkownika składają się trzy pliki: \textit{strona.html}, \tex
 \item kilka przycisków powiązanych z metodą getInfo().
 \end{itemize}
 \ind Plik \textit{memoryFile.js} jest modyfikowany przez serwer lokalny i służy do zapamiętywania formularzy utworzonych przez aplikację. Jako kod zawiera on wyłącznie deklarację stałej ,,memory'', będącej obiektem JSON następującej budowy:
+\begin{figure}[H]
 \begin{lstlisting}[language=json,firstnumber=1]
 {"forms":
     [{"id": "string",
@@ -31,6 +32,7 @@ Na interfejs użytkownika składają się trzy pliki: \textit{strona.html}, \tex
     ]
 }
 \end{lstlisting}
+\end{figure}
 Wartość ,,id'' jest generowana przez usługę Google'a przy tworzeniu formularza, ,,date'' to data utworzenia formularza (rok-miesiąc-dzień), ,,name'' odpowiada tytułowi.
 \ind Wartość ,,selectedForm'' z pliku \textit{htmlCode.js} odpowiada identyfikatorowi formularza obecnie podświetlonego na niebiesko na liście formularzy. Metody zaimplementowane w \textit{htmlCode.js}:
 \begin{itemize}
@@ -87,10 +89,11 @@ Z braku udostępnionej metody usuwającej żądany formularz - zapytanie o usuni
 \ind Metoda doPost(e) odpowiada  za tworzenie nowych formularzy. Przesyłana zawartość zawiera zakodowany w formacie JSON formularz, wstępnie przetworzony przez lokalny serwer (zamiana pytań z wstawkami \LaTeX{}'owymi na zdjęcia w formacie base64). Ta metoda uruchamia funkcję \textit{createFromJSON} z pliku \textit{createForm.gs}.
 \subsection{Zarządzanie formularzami}
 Plik \textit{createForm.gs} zawiera kilka metod służących do tworzenia konkrentych rodzajów pytań:
-\begin{itemize} %TODO rodzaje pytań
-\item checkBox - 
-\item
-\item
+\begin{itemize}
+\item checkBox - pytanie zamknięte wielokrotnego wyboru,
+\item grid - pytanie zamknięte mające formę siatki polami do wyboru. W niniejszej pracy kolumny siatki są ustawione na ,,prawdę'' i ,,fałsz'', wiersze są zakodowanymi w JSONie odpowiedziami. API nie udostępnia automatycznego oceniania tego typu pytań,
+\item list - pytanie zamknięte jednokrotnego wyboru - odpowiedź jest wybierana z listy rozwijanej,
+\item text - pytanie otwarte, ocenianie automatyczne również niemożliwe.
 
 \end{itemize}
 Pytania ze wstawkami \LaTeX{}'owymi są w formie zdjęć, nie posiadają możliwych odpowiedzi - tuż pod nimi tworzone jest pytanie bez treści zawierające możliwe odpowiedzi. W praktyce wygląda to w następujący sposób:
@@ -99,7 +102,7 @@ Pytania ze wstawkami \LaTeX{}'owymi są w formie zdjęć, nie posiadają możliw
   \caption{Przykład}
   \label{fig:1}
 \end{figure}
-Takie rozwiązanie wynika z ograniczeń  API formularzy, które nie udostępnia metod wprowadzenia zdjęć do popularnych typów pytań - jest to znany problem, zgłaszany \href{https://issuetracker.google.com/issues/36765518?pli=1}{tutaj}. Metoda \textit{image} tworzy pole zdjęciowe w formularzu. 
+Takie rozwiązanie wynika z ograniczeń  API formularzy, które nie udostępnia metod wprowadzenia zdjęć do popularnych typów pytań - jest to znany problem, zgłaszany tutaj: \href{https://issuetracker.google.com/issues/36765518?pli=1}{https://issuetracker.google.com/issues/36765518?pli=1}. Metoda \textit{image} tworzy pole zdjęciowe w formularzu. 
 Funkcja \textit{setFromFeatures} modyfikuje ustawienia formularza - chodzi tu o zapamiętywanie adresów mailowych użytkowników przesyłających odpowiedzi, limit odpowiedzi na użytkownika, ustawienie współwłaściciela formularza oraz wartości, czy formularz powinien być oceniany automatycznie.
 \ind Główną funkcją w pliku jest \textit{createFromJSON}, która generuje formularz poprzez wywoływanie odpowiednich metod z wymienionych wyżej. Właścicielem formularza jest właściciel aplikacji internetowej (użytkownik Google, pod którego  kontem tworzone są formularze). Takie rozwiązanie pozwala na uniknięcie potrzeby autoryzacji przy każdym dostępie do aplikacji internetowej.
 

@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.2.2.}Ścieżki serwera}{16}{subsection.3.2.2}%
 \contentsline {paragraph}{uploadJsonFile}{16}{section*.14}%
 \contentsline {paragraph}{createForm}{16}{section*.15}%
-\contentsline {paragraph}{getInfo}{16}{section*.16}%
+\contentsline {paragraph}{getInfo}{17}{section*.16}%
 \contentsline {subsection}{\numberline {3.2.3.}JSON validation}{17}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4.}Plik tex2png.js}{17}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3.}Google Apps Script}{17}{section.3.3}%
@@ -56,11 +56,12 @@
 \contentsline {paragraph}{Activate}{24}{section*.18}%
 \contentsline {paragraph}{Deactivate}{24}{section*.19}%
 \contentsline {paragraph}{Delete Form}{24}{section*.20}%
-\contentsline {paragraph}{Get Publisher Url}{24}{section*.21}%
-\contentsline {paragraph}{Get Editor Url}{24}{section*.22}%
-\contentsline {chapter}{\numberline {5.}Podsumowanie}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1.}Wnioski}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2.}Rozwój}{25}{section.5.2}%
-\contentsline {paragraph}{Zarządzanie przesłanymi odpowiedziami}{25}{section*.23}%
-\contentsline {paragraph}{Możliwość ustawiania losowej kolejności pytań}{25}{section*.24}%
-\contentsline {paragraph}{Ustawianie czasu rozpoczęcia oraz zakończenia testu}{26}{section*.25}%
+\contentsline {paragraph}{Get Publisher Url}{25}{section*.21}%
+\contentsline {paragraph}{Get Editor Url}{25}{section*.22}%
+\contentsline {chapter}{\numberline {5.}Podsumowanie}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1.}Wnioski}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2.}Rozwój}{27}{section.5.2}%
+\contentsline {paragraph}{Zarządzanie przesłanymi odpowiedziami}{27}{section*.23}%
+\contentsline {paragraph}{Możliwość ustawiania losowej kolejności pytań}{27}{section*.24}%
+\contentsline {paragraph}{Ustawianie czasu rozpoczęcia oraz zakończenia testu}{28}{section*.25}%
+\contentsline {chapter}{Bibliografia}{29}{chapter*.26}%

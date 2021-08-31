@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.2.15)  31 AUG 2021 00:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.2.15)  31 AUG 2021 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,8 +466,14 @@ Type  H <return>  for immediate help.
 l.8 \ind
          Fragmenty kodu korzystają również z bibliotek Pythonowych - skry...
 
+? ^^[[A
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
 ? 
-<schemat.png, id=206, 412.6617pt x 260.172pt>
+<schemat.png, id=211, 412.6617pt x 260.172pt>
 File: schemat.png Graphic file (type png)
 <use schemat.png>
 Package pdftex.def Info: schemat.png  used on input line 11.
@@ -529,7 +535,7 @@ l.25 \ind
 
 ? 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-6.
+7.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [14pdfTeX warning (ext4): destination with the same identifier (name{figure.3
@@ -537,15 +543,16 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.31     ]
-          ]
-Overfull \hbox (18.7897pt too wide) in paragraph at lines 53--56
+l.36 W
+      artość ,,id'' jest generowana przez usługę Google'a przy tworzeniu...
+]
+Overfull \hbox (18.7897pt too wide) in paragraph at lines 55--58
 \T1/cmr/m/n/10.95 Aplikacja ko-rzy-sta z bi-blio-tek ,,express'', ,,cors'', ,,f
 s'', ,,https'', ,,json-schema'', ,,child_process''
  []
 
 [15] [16]
-Overfull \hbox (8.19211pt too wide) in paragraph at lines 65--66
+Overfull \hbox (8.19211pt too wide) in paragraph at lines 67--68
 []\T1/cmr/m/n/10.95 Zadaniem tego mo-du�u jest uru-cho-mie-nie no-wych pro-ce-s
 �w (child_process.spawn)
  []
@@ -557,46 +564,48 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70 \ind
+l.72 \ind
           Po stronie Google'a znajdują się dwa pliki: \textit{communicatio...
 
 ? 
 
-Overfull \hbox (1.06836pt too wide) in paragraph at lines 70--71
+Overfull \hbox (1.06836pt too wide) in paragraph at lines 72--73
 []\T1/cmr/m/n/10.95 Po stro-nie Go-ogle'a znaj-duj� si� dwa pliki: \T1/cmr/m/it
 /10.95 com-mu-ni-ca-tion.gs \T1/cmr/m/n/10.95 oraz \T1/cmr/m/it/10.95 cre-ate-F
 rom.gs\T1/cmr/m/n/10.95 ,
  []
 
 [17]
-<przyklad.png, id=284, 412.6617pt x 260.172pt>
+<przyklad.png, id=298, 412.6617pt x 260.172pt>
 File: przyklad.png Graphic file (type png)
 <use przyklad.png>
-Package pdftex.def Info: przyklad.png  used on input line 98.
+Package pdftex.def Info: przyklad.png  used on input line 101.
 (pdftex.def)             Requested size: 412.66068pt x 260.17134pt.
 
-Overfull \hbox (14.32207pt too wide) in paragraph at lines 98--99
+Overfull \hbox (14.32207pt too wide) in paragraph at lines 101--102
 [][]
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
+[18]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 106.
+(Font)              <14.4> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 106.
-
-[19pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
-}) has been already used, duplicate ignored
+(Font)              <7> on input line 109.
+ [19pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.111 \item Z
+l.114 \item Z
              a pomocą biblioteki tex2pix plik .tex jest konwertowany do for...
  <./przyklad.png>]) (./instrukcja.tex [20]
 Rozdzia\l  4..
+
+Overfull \hbox (84.80159pt too wide) in paragraph at lines 6--8
+[]\T1/cmr/m/n/10.95 Na po-cz�tku na-le�y sklo-no-wa� []re-po-zy-to-rium pro-jek
+tu[] -- gi-thub.com/agnpawicka/pracaInzynierska. 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -604,13 +613,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 [22]
-<strona.png, id=324, 462.528pt x 260.172pt>
+<strona.png, id=338, 462.528pt x 260.172pt>
 File: strona.png Graphic file (type png)
 <use strona.png>
-Package pdftex.def Info: strona.png  used on input line 63.
+Package pdftex.def Info: strona.png  used on input line 65.
 (pdftex.def)             Requested size: 462.52686pt x 260.17134pt.
 
-Overfull \hbox (64.18825pt too wide) in paragraph at lines 63--64
+Overfull \hbox (64.18825pt too wide) in paragraph at lines 65--66
 [][]
  []
 
@@ -621,7 +630,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 \\W
+l.69 \\W
         idoczne u góry pole do wgrywania plików przyjmuje formaty .txt ora...
 
 ? 
@@ -630,8 +639,9 @@ l.67 \\W
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.73 \begin{itemize}
-                     <./strona.png>]
+l.74 \item S
+            erwer lokalny sprawdza zgodność pliku ze schematem (JSON schem...
+ <./strona.png>]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -639,38 +649,45 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 \ind
+l.84 \ind
           Zachowania poszczególnych przycisków  - za wyjątkiem ,,Generate...
 
 ? 
-) (./konkluzje.tex [24]
-Rozdzia\l  5..
-[25
+) (./konkluzje.tex [24] [25] [26
 
-])
-No file tekst.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
-[26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+]
+Rozdzia\l  5..
+[27]) (./tekst.bbl [28]
+Underfull \hbox (badness 1019) in paragraph at lines 4--7
+[]\T1/cmr/m/n/10.95 Google.  Do-ku-men-ta-cja forms se-rvice w go-ogle apps scr
+ipt.  []$\T1/cmtt/m/n/10.95 https : / /
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
+ [29
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
  (./tekst.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `tekst.out' has not changed.
-(rerunfilecheck)             Checksum: 119B8121852F8A501F8B575FE6AC4EB6;4420.
+(rerunfilecheck)             Checksum: A0A0FA71E69A9745F5744312C5BDCACF;4526.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 12511 strings out of 481239
- 174727 string characters out of 5920377
- 470213 words of memory out of 5000000
- 27488 multiletter control sequences out of 15000+600000
+ 12538 strings out of 481239
+ 175024 string characters out of 5920377
+ 470886 words of memory out of 5000000
+ 27499 multiletter control sequences out of 15000+600000
  550710 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,37p,926b,1888s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,37p,926b,1264s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/
 fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
@@ -684,10 +701,10 @@ ype1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super
 share/texmf/fonts/type1/public/cm-super/sfsl0800.pfb></usr/share/texmf/fonts/ty
 pe1/public/cm-super/sfsl1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/
 sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on tekst.pdf (26 pages, 505281 bytes).
+Output written on tekst.pdf (29 pages, 511213 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 376 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 418 compressed objects within 5 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

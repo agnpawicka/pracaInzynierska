@@ -38,7 +38,7 @@ module.exports = function (json){
       "type": "object",
       "required": ["type", "text", "tex"],
       "properties": {
-        "type": {"type": "string", "enum": ["checkBox", "gridBox", "text", "list", "choice"]},
+        "type": {"type": "string", "enum": ["checkBox", "grid", "text", "list"]},
         "text": {"type": "string"},
         "tex": {"type": "boolean"},
         "answers": { "type": "array", "items" : {

@@ -3,7 +3,7 @@
 \section{Początki pracy  z narzędziem}
 Wtyczka pozwala na wygenerowanie formularza Google Forms z pliku kodującego w formacie JSON, automatyczne definiowanie jego treści na podstawie wstawek w \LaTeX{}'u oraz zarządzanie informacjami o tym, czy dany formularz przyjmuje przesyłane odpowiedzi. Na początek należy jednak pobrać i zainstalować zależności wykorzystywane przez narzędzie.
 \subsection{Instalacja}
-Na początku należy sklonować \href{https://github.com/agnpawicka/pracaInzynierska/}{repozytorium projektu}.
+Na początku należy sklonować \href{https://github.com/agnpawicka/pracaInzynierska/}{repozytorium projektu} -- github.com/agnpawicka/pracaInzynierska.
 \ind Następnie wejść w folder \textbf{source} i uruchomić plik o nazwie ,,install.sh''. Pozwoli to na zainstalowanie potrzebnych bibliotek.
 \subsection{Praca z wtyczką}
 Aby włączyć narzędzie należy uruchomić plik o nazwie ,,run.sh''. Uruchomi on lokalny serwer Node.js'owy oraz stronę internetową z interfejsem użytkownika.
@@ -33,8 +33,10 @@ Jest to opis tych wartości, które mogą być użyte - nie wszystkie są jednak
 \begin{itemize}
 \item{type} - pole tekstowe dotyczące typu kodowanego pytania. Dopuszczalne wartości:
 \begin{itemize}
-\item ,,checkBox''%TODO
-\item
+\item ,,checkBox'' - pytanie zamknięte wielokrotnego wyboru,
+\item ,,grid'' - pytanie typu ,,prawda/fałsz'',
+\item ,,list'' - zamknięte jednokrotnego wyboru,
+\item ,,text'' - otwarte.
 \end{itemize}
  \textbf{pole wymagane},
 \item{text} - zawiera treść pytania w formie tekstowej. Może zawierać wstawki z \LaTeX{}'a. Należy jednak pamiętać, że JavaScript traktuje symbol ,,$\backslash$'' jako specjalny - wszystkie wystąpienia ,,$\backslash$'' należy więc zastąpić ,,$\backslash\backslash$'' - \textbf{pole wymagane},
@@ -42,7 +44,7 @@ Jest to opis tych wartości, które mogą być użyte - nie wszystkie są jednak
 \item{answers} - tablica, każde pole zawiera jedną z możliwych odpowiedzi w następującej formie:
 \begin{itemize}
 \item answer - pole tekstowe, treść danej odpowiedzi
-\item correct - wartość boolowska wskazująca czy dana odpowiedź jest prawidłowa
+\item correct - wartość boolowska wskazująca czy dana odpowiedź jest prawidłowa. Domyślna wartość: false.
 \end{itemize} 
 -\textbf{pole opcjonalne}
 \item{points} - wartość numeryczna, odpowiada liczbie punktów przyznawanej za poprawą odpowiedź na pytanie (dotyczy wyłącznie oceniania automatycznego) - \textbf{pole opcjonalne}
