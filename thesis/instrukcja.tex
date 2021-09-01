@@ -3,10 +3,10 @@
 \section{Początki pracy  z narzędziem}
 Wtyczka pozwala na wygenerowanie formularza Google Forms z pliku kodującego w formacie JSON, automatyczne definiowanie jego treści na podstawie wstawek w \LaTeX{}'u oraz zarządzanie informacjami o tym, czy dany formularz przyjmuje przesyłane odpowiedzi. Na początek należy jednak pobrać i zainstalować zależności wykorzystywane przez narzędzie.
 \subsection{Instalacja}
-Na początku należy sklonować \href{https://github.com/agnpawicka/pracaInzynierska/}{repozytorium projektu} -- github.com/agnpawicka/pracaInzynierska.
+Na początku należy sklonować \href{https://github.com/agnpawicka/pracaInzynierska/}{repozytorium projektu} --- github.com/agnpawicka /pracaInzynierska.
 \ind Następnie wejść w folder \textbf{source} i uruchomić plik o nazwie ,,install.sh''. Pozwoli to na zainstalowanie potrzebnych bibliotek.
 \subsection{Praca z wtyczką}
-Aby włączyć narzędzie należy uruchomić plik o nazwie ,,run.sh''. Uruchomi on lokalny serwer Node.js'owy oraz stronę internetową z interfejsem użytkownika.
+Aby włączyć narzędzie należy uruchomić plik o nazwie ,,run.sh''. Uruchomi on lokalny serwer Node.js-owy oraz stronę internetową z interfejsem użytkownika.
 \section{Schemat pliku kodującego (JSON)}
 Poniżej znajduje się rozpisany schemat kodowania: 
 \begin{figure}[H]
@@ -76,7 +76,7 @@ Po uruchomieniu użytkownik widzi stronę w przeglądarce, jak na zdjęciu poni�
 \item Validation succeded
 \item Wrong JSON format
 \end{itemize}
-\item Jeśli plik JSON jest zgodny ze schematem, następuje konwersja pytań zakodowanych jako ,,tex'' na format zdjęciowy. 
+\item Jeśli plik JSON jest zgodny ze schematem, następuje konwersja pytań zakodowanych jako ,,tex'' na format graficzny. 
 \item Po zakończonej konwersji, z lokalnego serwera wysyłany jest POST request do serwera po stronie Google, gdzie odbywa się konwersja pliku na formularz. Zdalny serwer odsyła informację po zakończonej pracy do serwera lokalnego.
 \item Lokalny serwer dodaje nowy formularz do listy.
 \item Wyświetla się komunikat \textbf{New form has been created. Please reload the page} z prośbą o odświeżenie strony.
@@ -86,7 +86,7 @@ Po uruchomieniu użytkownik widzi stronę w przeglądarce, jak na zdjęciu poni�
 \paragraph{Is Form Active} zwraca wartość \textbf{Form is active} jeśli formularz przyjmuje odpowiedzi oraz \textbf{Form is inactive} w przeciwnym przypadku.
 \paragraph{Activate} wysyła do serwera po stronie Google'a zapytanie, jeśli aktywacja formularza przebiegła pomyślnie, zwracana jest wiadomość \textbf{Form activated}.
 \paragraph{Deactivate} wysyła do serwera po stronie Google'a zapytanie, jeśli dezaktywacja formularza przebiegła pomyślnie, zwracana jest wiadomość \textbf{Form deactivated}.
-\paragraph{Delete Form} wysyła do serwera po stronie Google'a zapytanie o dezaktywację formularza, następnie usuwa z pliku z danymi o formularzach wpis dotyczący wybranego formularza oraz w komunikacie \textbf{Form deactivated, please reload page.} prosi o odświeżenie strony
+\paragraph{Delete Form} wysyła do serwera po stronie Google'a zapytanie o dezaktywację formularza, następnie usuwa z pliku z danymi o formularzach wpis dotyczący wybranego formularza oraz w komunikacie \textbf{Form deactivated, please reload page.} prosi o odświeżenie strony.
 \paragraph{Get Publisher Url} wysyła do serwera po stronie Google'a zapytanie o adres url dla respondentów wybranego formularza. W komunikacie pojawia się odpowiedni link.
 \paragraph{Get Editor Url} wysyła do serwera po stronie Google'a zapytanie o adres url dla edytorów wybranego formularza. W komunikacie pojawia się odpowiedni link.
 

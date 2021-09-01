@@ -1,7 +1,8 @@
 \chapter{Techniczny opis programu} 
-Narzędzie składa się z trzech głównych części:
+Możliwe jest dalsze rozwijanie przedstawianego narzędzia. Ten oto rozdział zawiera techniczny opis kodu programu oraz schemat komunikacji pomiędzy jego modułami.
+\ind Narzędzie składa się z trzech głównych części:
 \begin{itemize}
-\item interfejsu użytkownika napisanego przy użyciu frameworku CSS'owego ,,Bootstrap'',
+\item interfejsu użytkownika napisanego przy użyciu frameworku CSSowego ,,Bootstrap'',
 \item serwera napisanego w Node.js. Serwer jest uruchamiany lokalnie na urządzeniu użytkownika, komunikuje się z aplikacją internetową oraz interfejsem użytkownika,
 \item aplikacji internetowej, napisanej we frameworku Google Apps Script po stronie Google'a, pod prywatnym kontem e-mailowym.
 
@@ -45,7 +46,7 @@ Wartość ,,id'' jest generowana przez usługę Google'a przy tworzeniu formular
 \end{itemize}
 
 
-\section{Serwer Node.js'owy}
+\section{Serwer Node.js-owy}
 Serwer to prosta implementacja aplikacji we frameworku ,,express.js''. Po uruchomieniu nasłuchuje na porcie 3000 (co można zmienić w pliku \textit{server.js}, linia 3). Możliwe są trzy odwołania do serwera:
 \begin{itemize}
 \item uploadJsonFile
@@ -56,22 +57,23 @@ Aplikacja korzysta z bibliotek ,,express'', ,,cors'', ,,fs'', ,,https'', ,,jsons
 Zaimplementowana metoda \textit{makeRequest(options, data)} służy do komunikacji z serwerem po stronie Google'a.
 \ind Zasady działania poszczególnych fragmentów są opisane w odpowiednich podrozdziałach.
 \subsection{Komunikacja międzyserwerowa}
-Za komunikację pomiędzy serwerami odpowiedzialna jest metoda makeRequest(options, data) korzystająca z Node.js'owej biblioteki ,,https''. Zasada działania biblioteki jest następująca -- https request przyjmuje dwa argumenty: pierwszy (options) deklaruje szereg parametrów ( adres URL zapytania, typ metody, zawartość, nagłówki zapytania itp.), drugi jest metodą wywoływaną na wartości zwracanej przez zapytanie. 
-\ind Funkcja makeRequest(options, data) jako argumenty przyjmuje klasę options (zdefiniowaną w bibliotece https) oraz dane do przesłania. Zwraca konstrukcję \textit{Promise} pozwalającą na szeregowanie kolejnych zapytań. Wewnątrz metody przechwytującej odpowiedź obsługiwane jest przekierowanie zapytania (wysyłane z każdą odpowiedzią Google'a zawierającą zawartość) -- czyli wysyłane kolejne zapytanie do nowego adresu.
+Za komunikację pomiędzy serwerami odpowiedzialna jest metoda makeRequest(options, data) korzystająca z Node.js-owej biblioteki ,,https''. Zasada działania biblioteki jest następująca -- https request przyjmuje dwa argumenty: pierwszy (options) deklaruje szereg parametrów ( adres URL zapytania, typ metody, zawartość, nagłówki zapytania itp.), drugi jest metodą wywoływaną na wartości zwracanej przez zapytanie. 
+\ind Funkcja makeRequest(options, data) jako argumenty przyjmuje klasę options (zdefiniowaną w bibliotece https) oraz dane do przesłania. Zwraca konstrukcję \textit{Promise} --- obiekt biblioteki JavaScriptu, będący ,,obietnicą'' wykonania asynchronicznego zapytania. \textit{Promise} posiada stan (\textit{pending, fulfilled} lub \textit{rejected}) oraz metody \textit{then} i \textit{catch}, pozwalające na wykonanie kolejnych operacji dopiero, gdy stan obiektu będzie odpowiednio \textit{fulfilled} lub \textit{rejected}. Konstrukcja ta pozwala na szeregowanie kolejnych zapytań. Wewnątrz metody przechwytującej odpowiedź obsługiwane jest przekierowanie zapytania (wysyłane z każdą odpowiedzią Google'a zawierającą zawartość) --- czyli wysyłane kolejne zapytanie do nowego adresu.
 \subsection{Ścieżki serwera}
+Lokalny serwer komunikuje się z interfejsem graficznym poprzez obsługiwanie zapytań pod różnymi adresami w formacie \textit{localhost:3000/wywoływanaAkcja} (np. \textit{localhost:3000/getInfo}).
 Poniżej przedstawiono obsługiwane ścieżki serwera wraz z opisem ich działania.
-\paragraph{uploadJsonFile} Ścieżka pozwala na wgranie na serwer zakodowanego formularza i wstępne przetworzenie go. Ścieżka wywoływana jest z metody getFile() (patrz interfejs użytkownika, rozdział 3.1). Na początku kontrolowana jest zgodność kodowania ze schematem (plik \textit{jsonValidator}). Jeśli podany plik jest zgodny, przeprowadzana jest konwersja \LaTeX{}'a do zdjęć (plik \textit{tex2png.js}). Po tym etapie informacja o zgodności jest zwracana do interfejsu.
-\paragraph{createForm} Jeśli interfejs otrzyma informację o zgodności wgranego JSONa ze schematem, wywołuje zapytanie do serwera na ścieżce createForm. W tym miejscu dla pytań z wartością ,,tex''=true serwer podmienia wartości ,,text'' pytań na kodowanie zdjęć w base64. Następnie wysyłane jest zapytanie POST do serwera po stronie Google'a z zakodowanym formularzem. Jeśli nie będzie błędów -- zwrócona odpowiedź będzie zawierała identyfikator nowego formularza. W tym miejscu następuje również modyfikacja pliku \textit{memoryFile.js} -- dodawany jest nowy element tabeli -- data jest pobierana z klasy ,,Date'', nazwa z pola ,,title'' z kodowania formularza. Na koniec zwracana jest informacja do interfejsu.
+\paragraph{uploadJsonFile} Ścieżka pozwala na wgranie na serwer zakodowanego formularza (za i wstępne przetworzenie go. Ścieżka wywoływana jest z metody getFile() (patrz interfejs użytkownika, rozdział 3.1). Na początku kontrolowana jest zgodność kodowania ze schematem (plik \textit{jsonValidator}). Jeśli podany plik jest zgodny, przeprowadzana jest konwersja \LaTeX{}'a do obrazów (plik \textit{tex2png.js}). Po tym etapie informacja o zgodności jest zwracana do interfejsu.
+\paragraph{createForm} Jeśli interfejs otrzyma informację o zgodności wgranego JSONa ze schematem, wywołuje zapytanie do serwera na ścieżce createForm. W tym miejscu dla pytań z wartością ,,tex''=true serwer podmienia wartości ,,text'' pytań na kodowanie obrazów w base64. Następnie wysyłane jest zapytanie POST do serwera po stronie Google'a z zakodowanym formularzem. Jeśli nie będzie błędów -- zwrócona odpowiedź będzie zawierała identyfikator nowego formularza. W tym miejscu następuje również modyfikacja pliku \textit{memoryFile.js} -- dodawany jest nowy element tabeli -- data jest pobierana z klasy ,,Date'', nazwa z pola ,,title'' z kodowania formularza. Na koniec zwracana jest informacja do interfejsu.
 \paragraph{getInfo} Za pomocą tej ścieżki  przekazywana jest komunikacja dotycząca istniejących formularzy pomiędzy interfejsem a serwerem Google'owym. Jest to też miejsce modyfikacji pliku \textit{memoryFile.js} -- dla żądania ,,delete'' usuwany jest wpis dotyczący danego formularza.
 \subsection{JSON validation} Plik zawiera deklarację schematu JSON (patrz: instrukcja, rozdział 4.2). Za pomocą biblioteki jsonschema wykonywana jest walidacja zawartości przesłanego pliku.
-\subsection{Plik tex2png.js} Zadaniem tego modułu jest uruchomienie nowych procesów (child\_process.spawn)  -- skrypt \textit{tex2png.py} w Pythonie zajmuje się konwersją tekstu na zdjęcia odpowiednich rozmiarów. Głowna funkcja korzysta z konstrukcji \textit{Promise}.
+\subsection{Plik tex2png.js} Zadaniem tego modułu jest uruchomienie nowych procesów (child\_process.spawn)  -- skrypt \textit{tex2png.py} w Pythonie zajmuje się konwersją tekstu na grafiki odpowiednich rozmiarów. Głowna funkcja korzysta z konstrukcji \textit{Promise}.
 
 \section{Google Apps Script}
-Aplikacja internetowa stanowi rozwiązanie serwerowe, pozwalające na komunikację poprzez HTTP. Odwołać do niej może się każdy użytkownik znający adres URL aplikacji, kod wykonywany jest pod kontem Google właściciela aplikacji (w chwili obecnej aplikacja jest utworzona pod prywatnym kontem Google).
+Aplikacja internetowa stanowi rozwiązanie, pozwalające na komunikację poprzez HTTP oraz HTTPS. Odwołać do niej może się każdy użytkownik znający adres URL aplikacji, kod wykonywany jest pod kontem Google właściciela aplikacji (w chwili obecnej aplikacja jest utworzona pod prywatnym kontem Google).
 
-\ind Po stronie Google'a znajdują się dwa pliki: \textit{communication.gs} oraz \textit{createFrom.gs}, odpowiadające kolejno za komunikację po HTTP oraz za zarządzanie tworzeniem formularzy. 
-\subsection{HTTP}
-Plik \textit{communication.gs} zawiera implementację metod doPost(e) oraz doGet(e). Framework zapewnia, że są one wykonywane, gdy do aplikacji przyjdą zapytania HTTP (odpowiednio POST i GET). Do parametrów funkcji są przekazywane treści zapytań.
+\ind Po stronie Google'a znajdują się dwa pliki: \textit{communication.gs} oraz \textit{createFrom.gs}, odpowiadające kolejno za komunikację po HTTPS oraz za zarządzanie tworzeniem formularzy. 
+\subsection{HTTPS}
+Plik \textit{communication.gs} zawiera implementację metod doPost(e) oraz doGet(e). Framework zapewnia, że są one wykonywane, gdy do aplikacji przyjdą zapytania HTTPS (odpowiednio POST i GET). Do parametrów funkcji są przekazywane treści zapytań.
 \ind Metoda doGet(e) jest wykorzystywana do zapytań dotyczących tego, czy dany formularz przyjmuje przesyłane odpowiedzi oraz do uzyskiwania informacji na temat adresów URL danego formularza.  Poprawne zapytanie powinno zawierać dwie wartości:
 \begin{itemize}
 \item formId -- identyfikator formularza przypisywany automatycznie w momencie tworzenia,
@@ -96,30 +98,30 @@ Plik \textit{createForm.gs} zawiera kilka metod służących do tworzenia konkre
 \item text -- pytanie otwarte, ocenianie automatyczne również niemożliwe.
 
 \end{itemize}
-Pytania ze wstawkami \LaTeX{}'owymi są w formie zdjęć, nie posiadają możliwych odpowiedzi -- tuż pod nimi tworzone jest pytanie bez treści zawierające możliwe odpowiedzi. W praktyce wygląda to w następujący sposób:
+Pytania ze wstawkami \LaTeX{}'owymi są w formie obrazów, nie posiadają możliwych odpowiedzi -- tuż pod nimi tworzone jest pytanie bez treści zawierające możliwe odpowiedzi. W praktyce wygląda to w następujący sposób:
 \begin{figure}[H]
   \includegraphics[scale=0.75]{przyklad.png}
   \caption{Przykład}
   \label{fig:1}
 \end{figure}
-Takie rozwiązanie wynika z ograniczeń  API formularzy, które nie udostępnia metod wprowadzenia zdjęć do popularnych typów pytań -- jest to znany problem, zgłaszany tutaj: \href{https://issuetracker.google.com/issues/36765518?pli=1}{https://issuetracker.google.com/issues/36765518?pli=1}. Metoda \textit{image} tworzy pole zdjęciowe w formularzu. 
+Takie rozwiązanie wynika z ograniczeń  API formularzy, które nie udostępnia metod wprowadzenia zdjęć do popularnych typów pytań -- jest to znany problem, zgłaszany tutaj: \href{https://issuetracker.google.com/issues/36765518?pli=1}{https://issuetracker.google.com/issues/36765518?pli=1}. Metoda \textit{image} tworzy pole z grafiką w formularzu. 
 Funkcja \textit{setFromFeatures} modyfikuje ustawienia formularza -- chodzi tu o zapamiętywanie adresów mailowych użytkowników przesyłających odpowiedzi, limit odpowiedzi na użytkownika, ustawienie współwłaściciela formularza oraz wartości, czy formularz powinien być oceniany automatycznie.
-\ind Główną funkcją w pliku jest \textit{createFromJSON}, która generuje formularz poprzez wywoływanie odpowiednich metod z wymienionych wyżej. Właścicielem formularza jest właściciel aplikacji internetowej (użytkownik Google, pod którego  kontem tworzone są formularze). Takie rozwiązanie pozwala na uniknięcie potrzeby autoryzacji przy każdym dostępie do aplikacji internetowej.
+\ind Główną funkcją w pliku jest \textit{createFromJSON}, która generuje formularz poprzez wywoływanie odpowiednich metod z wymienionych wyżej. Właścicielem formularza jest właściciel aplikacji internetowej (użytkownik Google, pod którego  kontem tworzone są formularze). Takie rozwiązanie pozwala na uniknięcie potrzeby autentyfikacji przy każdym dostępie do aplikacji internetowej.
 
 \section{Konwersja wstawek z \LaTeX{}'a}
-Niniejsza część korzysta z podstawowej biblioteki \LaTeX{}'a, szablon tworzonych zdjęć stanowi plik \textit{texTemplate.tex}. Wszystkie tworzone pliki znajdują się w folderze \textit{pictures}.
+Niniejsza część korzysta z podstawowej biblioteki \LaTeX{}'a, szablon tworzonych obrazów stanowi plik \textit{texTemplate.tex}. Wszystkie tworzone pliki znajdują się w folderze \textit{pictures}.
 \ind Decyzja o napisaniu tej części w Pythonie powstała stosunkowo późno. Powodem jest biblioteka openCV -- udostępniająca zaawansowane metody obliczeniowe w przystępny sposób. Skrypt działa następująco:
 \begin{itemize}
 \item Wczytywany jest szablon w \LaTeX{}'u i w odpowiednie miejsce wstawiany jest tekst z pytania (oznaczonego tex=true) -- warto wspomnieć, że treść pytania jest otoczona ramką.
 \item Za pomocą biblioteki tex2pix plik .tex jest konwertowany do formatu pdf.
-\item Biblioteka pdf2image konwertuje pdf'a do png.
-\item Biblioteka openCV pozwala na ,,wycięcie'' ze zdjęcia wyłącznie obszaru otoczonego ramką (jako jedyny zawiera kolory).
+\item Biblioteka pdf2image konwertuje plil formatu pdf do png.
+\item Biblioteka openCV pozwala na ,,wycięcie'' z grafiki wyłącznie obszaru otoczonego ramką (jako jedyny zawiera kolory).
 \item ,,Ramka'' jest zapisywana jako png.
-\item Przy użyciu biblioteki base64 końcowe zdjęcie jest konwertowane do formatu base64 i zapisywane do pliku.
+\item Przy użyciu biblioteki base64 końcowy obraz jest konwertowany do formatu base64 i zapisywane do pliku.
 \item Pośrednie stadia konwersji są usuwane z folderu.
 \end{itemize}
 \subsection{Alternatywne rozwiązanie}%o tym czemu nie mathjax
-Wydaje się naturalne, aby do problemu parsowania symboli matematycznych użyć gotowego silnika (opartego np. na Markdown'ie lub \LaTeX{}'u). Takim silnikiem jest na przykład MathJax. Udostępnia bogate API, integrację Webową. Doskonale współpracuje z JavaScriptem. Główną komplikacją jest to, że zwracany wynik jest w HTMLu -- co wymagałoby dodatkowej konwersji. Nie wykluczone jednak, że istnieje znacząco prostsze rozwiązanie - korzystające właśnie z takiego silnika.
+Wydaje się naturalne, aby do problemu parsowania symboli matematycznych użyć gotowego silnika (opartego np. na Markdownie lub \LaTeX{}'u). Takim silnikiem jest na przykład MathJax. Udostępnia bogate API, integrację Webową. Doskonale współpracuje z JavaScriptem. Główną komplikacją jest to, że zwracany wynik jest w HTMLu --- jako, że jest to format, nieobsługiwany przez Google Forms,  wymagałoby to dodatkowej konwersji. Nie wykluczone jednak, że istnieje znacząco prostsze rozwiązanie - korzystające właśnie z takiego silnika.
 \section{Skrypty instalujący i uruchamiający}
 Instalacja oparta jest na npm (dla Node.js) i pip (Python) -- skrypt \textit{install.sh} instaluje wymagane biblioteki przy pomocy tychże narzędzi.
 \ind  Uruchomienie programu wymaga uruchomienia dwóch części -- serwera lokalnego oraz interfejsu -- ten drugi wymaga przeglądarki internetowej. Skrypt \textit{run.sh} wypisuje ścieżkę pliku stanowiącego interfejs z prośbą o otwarcie go w przeglądarce i uruchamia serwer lokalny.

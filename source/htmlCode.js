@@ -18,15 +18,17 @@ function changeLocation(newLocation) {
  */
 function makeHttpRequest(Url, callback){
   var xmlHttp = new XMLHttpRequest();
+  let response = "";
   xmlHttp.open( "GET", Url, true );
   xmlHttp.send();
   xmlHttp.onreadystatechange = function() {
      if (this.readyState == 4){
         //Obsługiwane są również odpowiedzi ze stasusem innym niż 200:
+        response = this.response
         document.getElementById('response').innerHTML = this.response;
         if(this.status == 200) {
            callback();
-           document.getElementById('response').innerHTML = this.response;
+           document.getElementById('response').innerHTML = response;
         }
       }
     }
