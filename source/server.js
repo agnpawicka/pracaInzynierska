@@ -80,13 +80,15 @@ app.get('/uploadJsonFile', (req, res) =>{
       //Konwersja latex'a do zdjęć
       const tex2png = require('./tex2png.js');
       tex2png(jsonForm).then((stat) => {
-        console.log("Conversion finished.");
+
         if(stat) {
+          console.log("Conversion finished.");
           res.set('Content-Type', 'text/html')
           res.send(Buffer.from('<p>JSON validation and latex conversion succeded.</p>'));
         }
         else {
-            res.status(400).set('Content-Type', 'text/html').send(Buffer.from('<p>Latex conversion failed</p>'))
+          console.log("Conversion failed");
+          res.status(400).set('Content-Type', 'text/html').send(Buffer.from('<p>Latex conversion failed</p>'))
         }
       }).catch({});
     }

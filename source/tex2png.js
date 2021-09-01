@@ -12,8 +12,11 @@ module.exports = function (jsonForm){
     for(var i in qst){
       if(qst[i].tex){
         const python = spawn('python', ['tex2png.py', qst[i].text, i]);
-        python.on('exit', ()=>{
-          //Implementacja oczekiwania, aż wszystkie podprocesy się zakończą
+        python.on('exit', (exitCode)=>{
+          if(exitCode!= 0){
+            resolve(false);
+          }
+          //Implementacja oczekiwania, aż wszystkie podprocesy się zakończą (poprawnie)
           done++;
           if(done===qst.length) resolve(true);
         })

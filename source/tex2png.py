@@ -61,7 +61,7 @@ cv2.imwrite(png, dst)
 
 # Konwersja .png -> base64
 with open(png, "rb") as image_file:
-b64 = base64.b64encode(image_file.read())
+    b64 = base64.b64encode(image_file.read())
 base64File = open(bas, "w")
 base64File.write(b64.decode('utf-8'))
 base64File.close()
@@ -70,3 +70,4 @@ base64File.close()
 os.remove(tex)
 os.remove(pic)
 os.remove(pdf)
+print("zakończone")

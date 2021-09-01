@@ -1,1 +1,2 @@
 # pracaInzynierska
+Praca zawiera implementację oraz opis rozszerzenia do usługi Google Forms. Rozszerzenie to pozwala na automatyczne generowanie formularzy z odpowiedniego pliku w formacie JSON, konwertowanie wstawek matematycznych napisanych w \LaTeX{} do odpowiednich symboli oraz zarządzanie niektórymi własnościami utworzynych uprzednio formularzy. W pracy znajduje się również omówienie wykorzystanych technologii oraz możliwego rozwoju narzędzia.

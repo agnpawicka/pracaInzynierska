@@ -1,0 +1,12 @@
+{"title": "Form Title", "email" : "agapawicka@gmail.com", "questions": [
+  {"type": "checkBox", "text": "Some question", "tex": false, "answers": [
+    {"answer": "correct answer", "correct": true},
+    {"answer": "other correct answer", "correct": true},
+    {"answer": "wrong answer", "correct": false},
+    {"answer": "another correct one", "correct": true},
+    {"answer": "incorrect", "correct": false}],
+     "points": 5 },
+  {"type": "grid", "text": "Some math: $x^{\\delta}$", "tex": true, "answers": [
+    {"answer": "first", "correct": true},
+    {"answer": "second", "correct": true},
+    {"answer": "third", "correct": false}]}]}
