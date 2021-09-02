@@ -9,4 +9,5 @@
   {"type": "grid", "text": "Some math: $x^{\\delta}$", "tex": true, "answers": [
     {"answer": "first", "correct": true},
     {"answer": "second", "correct": true},
-    {"answer": "third", "correct": false}]}]}
+    {"answer": "third", "correct": false}]}
+    ]}

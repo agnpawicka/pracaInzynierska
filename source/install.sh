@@ -17,6 +17,9 @@ echo "* multer:"
 npm install multer
 echo "* child process"
 npm install child_process
+echo "* body parser"
+npm install body-parser
+
 
 echo Installing python dependencies:
 echo "* tex2pix"

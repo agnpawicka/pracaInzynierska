@@ -24,12 +24,12 @@ Poniżej znajduje się rozpisany schemat kodowania:
 
 \end{lstlisting}
 \end{figure}
-Jest to opis tych wartości, które mogą być użyte -- nie wszystkie są jednak  wymagane. Poniżej znajduje się szczegółowy opis pól i wartości:
+Jest to opis tych wartości, które mogą być użyte --- nie wszystkie są jednak  wymagane. Poniżej znajduje się szczegółowy opis pól i wartości:
 \begin{itemize}
-\item{title} -- wartość tekstowa, odpowiada nagłówkowi formularza -  \textbf{pole wymagane},
-\item{email} -- adres e-mail edytora formularza (konieczne konto google) -- \textbf{pole opcjonalne},
-\item{check} -- wartość boolowska mówiąca o tym, czy formularz ma udostępniać opcję automatycznego oceniania. Domyślna wartość to \textbf{false}. W przypadku ustawienia wartości na \textbf{true} należy się upewnić, że przy każdym pytaniu są poprawnie ustalone wartości ,,correct'' oraz ,,points'' -- \textbf{pole opcjonalne},
-\item{questions} -- tablica, której każde pole zawiera informacje dotyczące jednego pytania -- \textbf{pole wymagane}. Poniżej znajdują się wartości kodujące pojedyncze pytanie:
+\item{title} -- wartość tekstowa, odpowiada nagłówkowi formularza ---  \textbf{pole wymagane},
+\item{email} -- adres e-mail edytora formularza (konieczne konto google) --- \textbf{pole opcjonalne},
+\item{check} -- wartość boolowska mówiąca o tym, czy formularz ma udostępniać opcję automatycznego oceniania. Domyślna wartość to \textbf{false}. W przypadku ustawienia wartości na \textbf{true} należy się upewnić, że przy każdym pytaniu są poprawnie ustalone wartości ,,correct'' oraz ,,points'' --- \textbf{pole opcjonalne},
+\item{questions} -- tablica, której każde pole zawiera informacje dotyczące jednego pytania --- \textbf{pole wymagane}. Poniżej znajdują się wartości kodujące pojedyncze pytanie:
 \begin{itemize}
 \item{type} -- pole tekstowe dotyczące typu kodowanego pytania. Dopuszczalne wartości:
 \begin{itemize}
@@ -39,15 +39,15 @@ Jest to opis tych wartości, które mogą być użyte -- nie wszystkie są jedna
 \item ,,text'' -- otwarte.
 \end{itemize}
  \textbf{pole wymagane},
-\item{text} -- zawiera treść pytania w formie tekstowej. Może zawierać wstawki z \LaTeX{}'a. Należy jednak pamiętać, że JavaScript traktuje symbol ,,$\backslash$'' jako specjalny -- wszystkie wystąpienia ,,$\backslash$'' należy więc zastąpić ,,$\backslash\backslash$'' -- \textbf{pole wymagane},
+\item{text} -- zawiera treść pytania w formie tekstowej. Może zawierać wstawki z \LaTeX{}'a. Należy jednak pamiętać, że JavaScript traktuje symbol ,,$\backslash$'' jako specjalny --- wszystkie wystąpienia ,,$\backslash$'' należy więc zastąpić ,,$\backslash\backslash$'' --- \textbf{pole wymagane},
 \item{tex} -- wartość boolowska, jeśli \textbf{true} treść pytania (text) będzie konwertowana do obrazu z zachowaniem konwersji symboli matematycznych i innych wstawek z \LaTeX{}'a z biblioteki standardowej, \textbf{pole wymagane},
 \item{answers} -- tablica, każde pole zawiera jedną z możliwych odpowiedzi w następującej formie:
 \begin{itemize}
 \item answer -- pole tekstowe, treść danej odpowiedzi
 \item correct -- wartość boolowska wskazująca czy dana odpowiedź jest prawidłowa. Domyślna wartość: false.
 \end{itemize} 
--\textbf{pole opcjonalne}
-\item{points} -- wartość numeryczna, odpowiada liczbie punktów przyznawanej za poprawą odpowiedź na pytanie (dotyczy wyłącznie oceniania automatycznego) -- \textbf{pole opcjonalne}
+--\textbf{pole opcjonalne}
+\item{points} -- wartość numeryczna, odpowiada liczbie punktów przyznawanej za poprawą odpowiedź na pytanie (dotyczy wyłącznie oceniania automatycznego) --- \textbf{pole opcjonalne}
 \end{itemize}
 \end{itemize}
 
@@ -62,6 +62,7 @@ Jest to opis tych wartości, które mogą być użyte -- nie wszystkie są jedna
 \section{Obsługa narzędzia}
 Po uruchomieniu użytkownik widzi stronę w przeglądarce, jak na zdjęciu poniżej:
 \begin{figure}[H]
+ \centering
   \includegraphics[scale=0.75]{strona.png}
   \caption{Interfejs aplikacji}
   \label{fig:1}
@@ -73,15 +74,16 @@ Po uruchomieniu użytkownik widzi stronę w przeglądarce, jak na zdjęciu poni�
 \item Sprawdzany jest format  pliku. Jeśli zawartość jest obiektem typu JSON, dane przekazywane są do lokalnego serwera, w przeciwnym przypadku strona wyświetli alert informujący o niepoprawnym formacie.
 \item Serwer lokalny sprawdza zgodność pliku ze schematem (JSON schema). Po tym etapie poniżej pola do wgrywania plików powinna pojawić się jedna z poniższych informacji:
 \begin{itemize}
-\item Validation succeded
-\item Wrong JSON format
+\item JSON validation and latex conversion succeded.
+\item Latex conversion failed.
+\item Wrong JSON format.
 \end{itemize}
 \item Jeśli plik JSON jest zgodny ze schematem, następuje konwersja pytań zakodowanych jako ,,tex'' na format graficzny. 
 \item Po zakończonej konwersji, z lokalnego serwera wysyłany jest POST request do serwera po stronie Google, gdzie odbywa się konwersja pliku na formularz. Zdalny serwer odsyła informację po zakończonej pracy do serwera lokalnego.
 \item Lokalny serwer dodaje nowy formularz do listy.
 \item Wyświetla się komunikat \textbf{New form has been created. Please reload the page} z prośbą o odświeżenie strony.
 \end{itemize}
-\ind Zachowania poszczególnych przycisków  -- za wyjątkiem ,,Generate Form'' -- dotyczą zawsze wybranego formularza z listy (podświetlonego w danym momencie na niebiesko). Aby wybrać formularz należy kliknąć na niego w liście formularzy. 
+\ind Zachowania poszczególnych przycisków  --- za wyjątkiem ,,Generate Form'' --- dotyczą zawsze wybranego formularza z listy (podświetlonego w danym momencie na niebiesko). Aby wybrać formularz należy kliknąć na niego w liście formularzy. 
 \ind Widoczne w interfejsie przyciski mają następujące funkcje:
 \paragraph{Is Form Active} zwraca wartość \textbf{Form is active} jeśli formularz przyjmuje odpowiedzi oraz \textbf{Form is inactive} w przeciwnym przypadku.
 \paragraph{Activate} wysyła do serwera po stronie Google'a zapytanie, jeśli aktywacja formularza przebiegła pomyślnie, zwracana jest wiadomość \textbf{Form activated}.

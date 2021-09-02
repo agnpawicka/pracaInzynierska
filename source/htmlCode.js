@@ -16,11 +16,12 @@ function changeLocation(newLocation) {
  * callback - metoda do wywołania po otrzymaniu odpowiedzi o statusie
    200 z serwera
  */
-function makeHttpRequest(Url, callback){
+function makeHttpRequest(Url, method, data, callback){ //TODO że get/post i że data jakaś
   var xmlHttp = new XMLHttpRequest();
   let response = "";
-  xmlHttp.open( "GET", Url, true );
-  xmlHttp.send();
+  xmlHttp.open( method, Url, true );
+  if(method=="POST") xmlHttp.setRequestHeader("Content-Type", 'application/json');
+  xmlHttp.send(data);
   xmlHttp.onreadystatechange = function() {
      if (this.readyState == 4){
         //Obsługiwane są również odpowiedzi ze stasusem innym niż 200:
@@ -46,7 +47,7 @@ function getInfo(action){
     alert("no form selected");
   }
   else{
-    makeHttpRequest("http://localhost:3000/getInfo?formId="+selectedForm +"&action="+action,  function(){console.log("hura!");})
+    makeHttpRequest("http://localhost:3000/getInfo?formId="+selectedForm +"&action="+action, "GET", "",  function(){console.log("request resolved");})
   }
 }
 
@@ -67,8 +68,8 @@ function getFile() {
        let json = JSON.parse(readFile);
 
        //Przekazanie pliku do serwera:
-       const Url ="http://localhost:3000/uploadJsonFile?encoded="+JSON.stringify(json)
-       makeHttpRequest(Url, function (){   makeHttpRequest("http://localhost:3000/createForm?", generateList)});
+       const Url ="http://localhost:3000/uploadJsonFile" 
+       makeHttpRequest(Url, "POST", JSON.stringify(json),  function (){   makeHttpRequest("http://localhost:3000/createForm?", "GET", "",  generateList)});
 
     }catch(error){
        alert("Uploaded file have wrong format");

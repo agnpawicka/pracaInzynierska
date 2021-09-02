@@ -3,20 +3,23 @@
 * port - stała, numer portu serwera
 * jsonForm - zmienna przechowująca zakodowany formularz
 
+
 Serwer korzysta z kilku bibliotek:
 * express
 * fs - file system
 * cors - dostępne na podstawie licencji MIT
 * https
+* body-parser - dostępne na podstawie licencji MIT
 */
 const express = require('express');
 const fs = require('fs');
 var cors = require('cors');
 var https = require('https');
-
+const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 app.use(cors());
+app.use(bodyParser.json());
 var jsonForm;
 
 
@@ -67,9 +70,10 @@ function makeRequest(options, data) {
   Ścieżka służy do przechwycenia kodowania JSON, sprawdzenia jego zgodności
   ze schematem oraz konwersji wstawek matematycznych.
 */
-app.get('/uploadJsonFile', (req, res) =>{
-  jsonForm = JSON.parse(req.query.encoded)
-  console.log("Uploaded: "+jsonForm);
+app.post('/uploadJsonFile', (req, res) =>{
+  jsonForm = req.body;
+  console.log("Uploaded: ");
+  console.log(jsonForm);
   //Walidacja pliku:
   const validation = require('./jsonValidator.js')
   validation(jsonForm).then((valid) => {

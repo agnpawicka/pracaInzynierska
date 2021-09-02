@@ -20,31 +20,32 @@
 \contentsline {paragraph}{express}{10}{section*.3}%
 \contentsline {paragraph}{cors}{10}{section*.4}%
 \contentsline {paragraph}{child\_process}{11}{section*.5}%
-\contentsline {paragraph}{jsonschema}{11}{section*.6}%
+\contentsline {paragraph}{body-parser}{11}{section*.6}%
+\contentsline {paragraph}{jsonschema}{11}{section*.7}%
 \contentsline {section}{\numberline {2.3.}Google Apps Script}{11}{section.2.3}%
-\contentsline {paragraph}{Framework}{11}{section*.7}%
-\contentsline {paragraph}{Komunikacja}{11}{section*.8}%
-\contentsline {paragraph}{API}{11}{section*.9}%
+\contentsline {paragraph}{Framework}{11}{section*.8}%
+\contentsline {paragraph}{Komunikacja}{11}{section*.9}%
+\contentsline {paragraph}{API}{12}{section*.10}%
 \contentsline {section}{\numberline {2.4.}Python}{12}{section.2.4}%
-\contentsline {paragraph}{tex2pix}{12}{section*.10}%
-\contentsline {paragraph}{pdf2image}{12}{section*.11}%
-\contentsline {paragraph}{opencv}{12}{section*.12}%
-\contentsline {paragraph}{base64}{12}{section*.13}%
+\contentsline {paragraph}{tex2pix}{12}{section*.11}%
+\contentsline {paragraph}{pdf2image}{12}{section*.12}%
+\contentsline {paragraph}{opencv}{12}{section*.13}%
+\contentsline {paragraph}{base64}{12}{section*.14}%
 \contentsline {chapter}{\numberline {3.}Techniczny opis programu}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1.}Interfejs użytkownika}{14}{section.3.1}%
 \contentsline {section}{\numberline {3.2.}Serwer Node.js-owy}{15}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1.}Komunikacja międzyserwerowa}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.1.}Komunikacja międzyserwerowa}{15}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2.}Ścieżki serwera}{16}{subsection.3.2.2}%
-\contentsline {paragraph}{uploadJsonFile}{16}{section*.14}%
-\contentsline {paragraph}{createForm}{16}{section*.15}%
-\contentsline {paragraph}{getInfo}{17}{section*.16}%
-\contentsline {subsection}{\numberline {3.2.3.}JSON validation}{17}{subsection.3.2.3}%
+\contentsline {paragraph}{uploadJsonFile}{16}{section*.15}%
+\contentsline {paragraph}{createForm}{16}{section*.16}%
+\contentsline {paragraph}{getInfo}{16}{section*.17}%
+\contentsline {subsection}{\numberline {3.2.3.}JSON validation}{16}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4.}Plik tex2png.js}{17}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3.}Google Apps Script}{17}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1.}HTTPS}{17}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2.}Zarządzanie formularzami}{18}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4.}Konwersja wstawek z \LaTeX {}'a}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1.}Alternatywne rozwiązanie}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1.}Alternatywne rozwiązanie}{19}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5.}Skrypty instalujący i uruchamiający}{20}{section.3.5}%
 \contentsline {chapter}{\numberline {4.}Instrukcja użytkownika}{21}{chapter.4}%
 \contentsline {section}{\numberline {4.1.}Początki pracy z narzędziem}{21}{section.4.1}%
@@ -52,16 +53,16 @@
 \contentsline {subsection}{\numberline {4.1.2.}Praca z wtyczką}{21}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2.}Schemat pliku kodującego (JSON)}{21}{section.4.2}%
 \contentsline {section}{\numberline {4.3.}Obsługa narzędzia}{23}{section.4.3}%
-\contentsline {paragraph}{Is Form Active}{24}{section*.17}%
-\contentsline {paragraph}{Activate}{24}{section*.18}%
-\contentsline {paragraph}{Deactivate}{24}{section*.19}%
-\contentsline {paragraph}{Delete Form}{24}{section*.20}%
-\contentsline {paragraph}{Get Publisher Url}{24}{section*.21}%
-\contentsline {paragraph}{Get Editor Url}{24}{section*.22}%
-\contentsline {chapter}{\numberline {5.}Podsumowanie}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1.}Wnioski}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2.}Rozwój}{25}{section.5.2}%
-\contentsline {paragraph}{Zarządzanie przesłanymi odpowiedziami}{25}{section*.23}%
-\contentsline {paragraph}{Możliwość ustawiania losowej kolejności pytań}{25}{section*.24}%
-\contentsline {paragraph}{Ustawianie czasu rozpoczęcia oraz zakończenia testu}{26}{section*.25}%
-\contentsline {chapter}{Bibliografia}{27}{chapter*.26}%
+\contentsline {paragraph}{Is Form Active}{24}{section*.18}%
+\contentsline {paragraph}{Activate}{24}{section*.19}%
+\contentsline {paragraph}{Deactivate}{24}{section*.20}%
+\contentsline {paragraph}{Delete Form}{24}{section*.21}%
+\contentsline {paragraph}{Get Publisher Url}{24}{section*.22}%
+\contentsline {paragraph}{Get Editor Url}{25}{section*.23}%
+\contentsline {chapter}{\numberline {5.}Podsumowanie}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1.}Wnioski}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2.}Rozwój}{27}{section.5.2}%
+\contentsline {paragraph}{Zarządzanie przesłanymi odpowiedziami}{27}{section*.24}%
+\contentsline {paragraph}{Możliwość ustawiania losowej kolejności pytań}{27}{section*.25}%
+\contentsline {paragraph}{Ustawianie czasu rozpoczęcia oraz zakończenia testu}{28}{section*.26}%
+\contentsline {chapter}{Bibliografia}{29}{chapter*.27}%
